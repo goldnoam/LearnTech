@@ -127,7 +127,7 @@ function App() {
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
                   <Tooltip content="Search Projects">
-                    <Search className="h-4 w-4 text-gray-400 group-focus-within:text-primary-500 transition-colors cursor-default" />
+                    <Search className="h-4 w-4 text-gray-400 group-focus-within:text-primary-500 transition-all duration-300 transform group-hover:scale-110 cursor-default" />
                   </Tooltip>
                 </div>
                 <input
@@ -142,7 +142,7 @@ function App() {
                     <Tooltip content="Clear Search">
                       <button
                         onClick={() => setSearchQuery('')}
-                        className="p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        className="p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110 hover:rotate-90"
                       >
                         <X className="h-4 w-4" />
                       </button>
@@ -167,7 +167,7 @@ function App() {
                     />
                     {searchQuery && (
                       <div className="absolute inset-y-0 right-0 pr-1 flex items-center">
-                        <button onClick={() => setSearchQuery('')} className="p-1 text-gray-400 hover:text-gray-600">
+                        <button onClick={() => setSearchQuery('')} className="p-1 text-gray-400 hover:text-gray-600 transition-transform hover:scale-110">
                           <X className="h-3 w-3" />
                         </button>
                       </div>
@@ -184,7 +184,7 @@ function App() {
                 <Tooltip content="Select Language">
                   <button
                     onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                    className={`p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 ${isLangMenuOpen ? 'bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400' : 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'}`}
+                    className={`p-2 rounded-full transition-all duration-200 transform hover:scale-110 hover:rotate-12 focus:outline-none focus:ring-2 focus:ring-primary-500 ${isLangMenuOpen ? 'bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400' : 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'}`}
                     aria-label="Select Language"
                     aria-expanded={isLangMenuOpen}
                   >
@@ -225,7 +225,7 @@ function App() {
               <Tooltip content={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}>
                 <button
                   onClick={() => setIsDark(!isDark)}
-                  className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-110 hover:rotate-45 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   aria-label="Toggle Theme"
                 >
                   {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-gray-700" />}
