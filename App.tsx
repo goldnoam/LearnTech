@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Globe, CircuitBoard, Search, X, Check } from 'lucide-react';
+import { Moon, Sun, Globe, CircuitBoard, Search, X, Check, ArrowUp } from 'lucide-react';
 import { ProjectCard } from './components/ProjectCard';
 import { Footer } from './components/Footer';
 import { PROJECTS, TRANSLATIONS } from './constants';
@@ -25,6 +25,9 @@ function App() {
 
   // Search State
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Scroll to top state
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const t = TRANSLATIONS[lang];
   const isRTL = lang === Language.HE;
@@ -57,6 +60,27 @@ function App() {
       document.removeEventListener('keydown', handleEscape);
     };
   }, [isLangMenuOpen]);
+
+  // Handle Scroll listener for ScrollToTop button
+  useEffect(() => {
+    const checkScroll = () => {
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+    return () => window.removeEventListener('scroll', checkScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   // Language Map for Display
   const languageNames: Record<Language, string> = {
@@ -256,6 +280,17 @@ function App() {
       </main>
 
       <Footer translation={t} />
+
+      {/* Scroll To Top Button */}
+      <Tooltip content="Scroll to Top" position="top">
+        <button
+          onClick={scrollToTop}
+          className={`fixed bottom-8 right-8 p-3 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 transition-all duration-300 transform hover:scale-110 z-40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      </Tooltip>
 
     </div>
   );

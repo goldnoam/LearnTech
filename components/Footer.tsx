@@ -41,13 +41,13 @@ export const Footer: React.FC<FooterProps> = ({ translation }) => {
                 {translation.footerRights}
               </span>
               <span className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
-                Made with <Heart className="w-3 h-3 text-red-500 fill-current" /> by Noam Gold
+                Made with <Heart className="w-3 h-3 text-red-500 fill-current animate-pulse" /> by Noam Gold
               </span>
             </div>
             
             <a
               href="mailto:gold.noam@gmail.com"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 transition-all duration-300 shadow-sm hover:shadow-md"
+              className="flex items-center gap-2 px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105"
             >
               <Mail className="w-4 h-4" />
               <span className="font-medium">{translation.feedback}</span>
@@ -59,16 +59,32 @@ export const Footer: React.FC<FooterProps> = ({ translation }) => {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-gray-500 dark:text-gray-400">
             <span className="text-sm font-medium uppercase tracking-wider">{translation.share}</span>
             <div className="flex items-center gap-3">
-              <button onClick={() => handleShare('twitter')} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#1DA1F2] transition-colors" aria-label="Share on Twitter">
+              <button 
+                onClick={() => handleShare('twitter')} 
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#1DA1F2] transition-all duration-300 transform hover:scale-110" 
+                aria-label="Share on Twitter"
+              >
                 <Twitter className="w-5 h-5" />
               </button>
-              <button onClick={() => handleShare('linkedin')} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#0A66C2] transition-colors" aria-label="Share on LinkedIn">
+              <button 
+                onClick={() => handleShare('linkedin')} 
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#0A66C2] transition-all duration-300 transform hover:scale-110" 
+                aria-label="Share on LinkedIn"
+              >
                 <Linkedin className="w-5 h-5" />
               </button>
-              <button onClick={() => handleShare('facebook')} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#1877F2] transition-colors" aria-label="Share on Facebook">
+              <button 
+                onClick={() => handleShare('facebook')} 
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#1877F2] transition-all duration-300 transform hover:scale-110" 
+                aria-label="Share on Facebook"
+              >
                 <Facebook className="w-5 h-5" />
               </button>
-              <button onClick={() => handleShare('copy')} className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-500 transition-colors" aria-label="Copy Link">
+              <button 
+                onClick={() => handleShare('copy')} 
+                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-500 transition-all duration-300 transform hover:scale-110" 
+                aria-label="Copy Link"
+              >
                 <LinkIcon className="w-5 h-5" />
               </button>
             </div>
