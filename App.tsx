@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Globe, CircuitBoard, Search, X } from 'lucide-react';
+import { Moon, Sun, Globe, CircuitBoard, Search, X, Check } from 'lucide-react';
 import { ProjectCard } from './components/ProjectCard';
 import { Footer } from './components/Footer';
 import { PROJECTS, TRANSLATIONS } from './constants';
 import { Language } from './types';
+import { Tooltip } from './components/Tooltip';
 
 function App() {
   // Theme State
   const [isDark, setIsDark] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
-      // Default to dark as requested
       const saved = localStorage.getItem('theme');
       if (saved) {
         return saved === 'dark';
@@ -40,6 +40,23 @@ function App() {
       localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
+
+  // Handle Close Menu on Escape
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsLangMenuOpen(false);
+      }
+    };
+
+    if (isLangMenuOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isLangMenuOpen]);
 
   // Language Map for Display
   const languageNames: Record<Language, string> = {
@@ -84,8 +101,10 @@ function App() {
             {/* Search Bar - Center */}
             <div className="flex-1 max-w-md mx-auto hidden md:block">
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-4 w-4 text-gray-400 group-focus-within:text-primary-500 transition-colors" />
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
+                  <Tooltip content="Search Projects">
+                    <Search className="h-4 w-4 text-gray-400 group-focus-within:text-primary-500 transition-colors cursor-default" />
+                  </Tooltip>
                 </div>
                 <input
                   type="text"
@@ -95,20 +114,22 @@ function App() {
                   placeholder={t.searchPlaceholder}
                 />
                 {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
+                  <div className="absolute inset-y-0 right-0 pr-2 flex items-center">
+                    <Tooltip content="Clear Search">
+                      <button
+                        onClick={() => setSearchQuery('')}
+                        className="p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        <X className="h-4 w-4" />
+                      </button>
+                    </Tooltip>
+                  </div>
                 )}
               </div>
             </div>
 
-            {/* Mobile Search Icon (Placeholder for layout, or implemented as a toggle if needed. For now using a simple input in the list flow for mobile or just keeping it hidden/compact) */}
-            {/* For this implementation, let's keep the search input visible but smaller on mobile or push controls to the right */}
+            {/* Mobile Search Input Compact */}
             <div className="flex md:hidden flex-1 justify-end mr-2">
-                 {/* Mobile Search Input Compact */}
                  <div className="relative w-full max-w-[160px]">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <Search className="h-4 w-4 text-gray-400" />
@@ -121,9 +142,11 @@ function App() {
                       placeholder={t.searchPlaceholder}
                     />
                     {searchQuery && (
-                    <button onClick={() => setSearchQuery('')} className="absolute inset-y-0 right-0 pr-2 flex items-center">
-                      <X className="h-3 w-3 text-gray-400" />
-                    </button>
+                      <div className="absolute inset-y-0 right-0 pr-1 flex items-center">
+                        <button onClick={() => setSearchQuery('')} className="p-1 text-gray-400 hover:text-gray-600">
+                          <X className="h-3 w-3" />
+                        </button>
+                      </div>
                     )}
                  </div>
             </div>
@@ -134,13 +157,16 @@ function App() {
               
               {/* Language Selector */}
               <div className="relative">
-                <button
-                  onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                  className="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  aria-label="Select Language"
-                >
-                  <Globe className="w-5 h-5" />
-                </button>
+                <Tooltip content="Select Language">
+                  <button
+                    onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
+                    className={`p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 ${isLangMenuOpen ? 'bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400' : 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'}`}
+                    aria-label="Select Language"
+                    aria-expanded={isLangMenuOpen}
+                  >
+                    <Globe className="w-5 h-5" />
+                  </button>
+                </Tooltip>
                 
                 {isLangMenuOpen && (
                   <>
@@ -148,7 +174,7 @@ function App() {
                       className="fixed inset-0 z-10 cursor-default" 
                       onClick={() => setIsLangMenuOpen(false)}
                     />
-                    <div className={`absolute ${isRTL ? 'left-0' : 'right-0'} mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 shadow-xl ring-1 ring-black ring-opacity-5 py-1 z-20 max-h-96 overflow-y-auto transform origin-top-right transition-all`}>
+                    <div className={`absolute ${isRTL ? 'left-0' : 'right-0'} mt-2 w-56 rounded-xl bg-white dark:bg-gray-800 shadow-xl ring-1 ring-black ring-opacity-5 py-1 z-20 max-h-96 overflow-y-auto transform origin-top-right transition-all`}>
                       {Object.entries(languageNames).map(([key, name]) => (
                         <button
                           key={key}
@@ -156,13 +182,14 @@ function App() {
                             setLang(key as Language);
                             setIsLangMenuOpen(false);
                           }}
-                          className={`block w-full text-left px-4 py-2 text-sm ${
+                          className={`flex items-center justify-between w-full px-4 py-2 text-sm transition-colors ${
                             lang === key 
-                              ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400' 
+                              ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400 font-medium' 
                               : 'text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700'
-                          } ${isRTL ? 'text-right' : 'text-left'}`}
+                          } ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}
                         >
-                          {name}
+                          <span>{name}</span>
+                          {lang === key && <Check className="w-4 h-4" />}
                         </button>
                       ))}
                     </div>
@@ -171,13 +198,15 @@ function App() {
               </div>
 
               {/* Theme Toggle */}
-              <button
-                onClick={() => setIsDark(!isDark)}
-                className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
-                aria-label="Toggle Theme"
-              >
-                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-gray-700" />}
-              </button>
+              <Tooltip content={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}>
+                <button
+                  onClick={() => setIsDark(!isDark)}
+                  className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  aria-label="Toggle Theme"
+                >
+                  {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-gray-700" />}
+                </button>
+              </Tooltip>
 
             </div>
           </div>

@@ -3,7 +3,7 @@ import { Language, Translation, ProjectData } from './types';
 export const PROJECTS: ProjectData[] = [
   {
     id: 'networking',
-    image: 'https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
     link: 'https://net-learn.vercel.app',
     translationKey: 'networking'
   },
