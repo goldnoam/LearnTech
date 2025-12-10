@@ -3,19 +3,19 @@ import { Language, Translation, ProjectData } from './types';
 export const PROJECTS: ProjectData[] = [
   {
     id: 'networking',
-    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&q=80&w=800',
     link: 'https://net-learn.vercel.app',
     translationKey: 'networking'
   },
   {
     id: 'ai-tools',
-    image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
     link: 'https://master-ai-code-tools.vercel.app',
     translationKey: 'aiTools'
   },
   {
     id: 'sbc',
-    image: 'https://images.unsplash.com/photo-1606775586676-e41c4f51e33c?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1555679427-1f6dfcce943b?auto=format&fit=crop&q=80&w=800',
     link: 'https://maker-forge.vercel.app',
     translationKey: 'sbc'
   }
