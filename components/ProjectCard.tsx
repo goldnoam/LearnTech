@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Twitter, Linkedin, Link as LinkIcon, Check, Loader2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { ProjectData, ProjectDetails } from '../types';
 
 interface ProjectCardProps {
@@ -11,6 +12,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, buttonText }) => {
   const [copied, setCopied] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const navigate = useNavigate();
 
   // Unique IDs for accessibility associations
   const titleId = `project-title-${data.id}`;
@@ -44,13 +46,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, buttonT
     if (selection && selection.toString().length > 0) {
       return;
     }
-    window.open(data.link, '_blank', 'noopener,noreferrer');
+    navigate(`/project/${data.id}`);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      window.open(data.link, '_blank', 'noopener,noreferrer');
+      navigate(`/project/${data.id}`);
     }
   };
 
@@ -125,7 +127,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, buttonT
         </p>
         
         {/* Visual Button - Click is handled by parent container */}
-        {/* aria-hidden because the link action is already described by the card container */}
         <div 
           aria-hidden="true"
           className="inline-flex items-center justify-center w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white font-medium rounded-xl hover:bg-primary-600 hover:text-white dark:hover:bg-primary-500 transition-all duration-300 gap-2 group/btn border border-transparent hover:border-primary-500 hover:shadow-lg hover:shadow-primary-500/20 mt-auto"

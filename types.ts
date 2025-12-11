@@ -22,17 +22,20 @@ export interface Translation {
     networking: ProjectDetails;
     aiTools: ProjectDetails;
     sbc: ProjectDetails;
+    python: ProjectDetails;
   };
 }
 
 export interface ProjectDetails {
   title: string;
   description: string;
+  longDescription: string;
+  features: string[];
 }
 
 export interface ProjectData {
   id: string;
   image: string;
   link: string;
-  translationKey: 'networking' | 'aiTools' | 'sbc';
+  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python';
 }

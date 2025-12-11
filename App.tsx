@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Moon, Sun, Globe, CircuitBoard, Search, X, Check, ArrowUp } from 'lucide-react';
-import { ProjectCard } from './components/ProjectCard';
 import { Footer } from './components/Footer';
+import { Home } from './components/Home';
+import { ProjectDetail } from './components/ProjectDetail';
 import { PROJECTS, TRANSLATIONS } from './constants';
 import { Language } from './types';
 import { Tooltip } from './components/Tooltip';
@@ -29,6 +31,9 @@ function App() {
   // Scroll to top state
   const [showScrollTop, setShowScrollTop] = useState(false);
 
+  // Route location for scrolling
+  const { pathname } = useLocation();
+
   const t = TRANSLATIONS[lang];
   const isRTL = lang === Language.HE;
 
@@ -43,6 +48,11 @@ function App() {
       localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
+
+  // Handle Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   // Handle Close Menu on Escape
   useEffect(() => {
@@ -237,60 +247,40 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Main Content with Routing */}
       <main className="flex-grow">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-primary-800 to-gray-900 dark:from-white dark:via-primary-300 dark:to-white tracking-tight mb-6 animate-fade-in-up">
-              {t.title}
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
-              {t.subtitle}
-            </p>
-          </div>
-
-          {/* Grid */}
-          {filteredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
-                <ProjectCard 
-                  key={project.id}
-                  data={project}
-                  details={t.projects[project.translationKey]}
-                  buttonText={t.visitSite}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 dark:bg-gray-800 mb-4">
-                <Search className="w-8 h-8 text-gray-400" />
-              </div>
-              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{t.noResults}</h3>
-              <p className="text-gray-500 dark:text-gray-400">Try adjusting your search terms</p>
-              <button 
-                onClick={() => setSearchQuery('')}
-                className="mt-4 text-primary-600 dark:text-primary-400 font-medium hover:underline"
-              >
-                Clear search
-              </button>
-            </div>
-          )}
-        </div>
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <Home 
+                t={t} 
+                projects={filteredProjects} 
+                onClearSearch={() => setSearchQuery('')} 
+              />
+            } 
+          />
+          <Route 
+            path="/project/:id" 
+            element={<ProjectDetail t={t} projects={PROJECTS} />} 
+          />
+        </Routes>
       </main>
 
       <Footer translation={t} />
 
-      {/* Scroll To Top Button */}
-      <Tooltip content="Scroll to Top" position="top">
-        <button
-          onClick={scrollToTop}
-          className={`fixed bottom-8 right-8 p-3 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 transition-all duration-300 transform hover:scale-110 z-40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
-      </Tooltip>
+      {/* Scroll To Top Button - Fixed container with static child for proper Tooltip positioning */}
+      <div className={`fixed bottom-8 right-8 z-40 transition-all duration-300 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
+        <Tooltip content="Scroll to Top" position="top">
+          <button
+            onClick={scrollToTop}
+            className="p-3 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="w-6 h-6" />
+          </button>
+        </Tooltip>
+      </div>
 
     </div>
   );
