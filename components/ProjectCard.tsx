@@ -7,10 +7,11 @@ import { Tooltip } from './Tooltip';
 interface ProjectCardProps {
   data: ProjectData;
   details: ProjectDetails;
-  buttonText: string;
+  detailsBtnText: string;
+  launchBtnText: string;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, buttonText }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, detailsBtnText, launchBtnText }) => {
   const [copied, setCopied] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const navigate = useNavigate();
@@ -100,18 +101,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, buttonT
         
         {/* Actions Overlay */}
         <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 translate-y-2 group-hover:translate-y-0">
-          <Tooltip content="Launch External Site" position="top">
-            <button 
-              onClick={handleVisitSite}
-              className="p-2.5 bg-primary-600 text-white rounded-full hover:bg-primary-500 transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-lg focus:outline-none focus:ring-2 focus:ring-white"
-              aria-label={`Open ${details.title} website`}
-            >
-              <ExternalLink className="w-4 h-4" />
-            </button>
-          </Tooltip>
-          
-          <div className="w-px h-6 bg-white/20 my-auto mx-1" />
-
           <button 
             onClick={(e) => handleShare(e, 'twitter')}
             className="p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full text-gray-500 dark:text-gray-400 hover:text-[#1DA1F2] hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
@@ -157,25 +146,40 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, buttonT
             onClick={(e) => handleQuickJump(e, 'about')}
             className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 rounded-full hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all"
           >
-            <Info className="w-3 h-3" />
-            About
+            <span className="flex items-center gap-1.5">
+              <Info className="w-3 h-3" />
+              About
+            </span>
           </button>
           <button
             onClick={(e) => handleQuickJump(e, 'features')}
             className="flex items-center gap-1.5 px-3 py-1 text-xs font-semibold bg-gray-100 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 rounded-full hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 transition-all"
           >
-            <List className="w-3 h-3" />
-            Features
+            <span className="flex items-center gap-1.5">
+              <List className="w-3 h-3" />
+              Features
+            </span>
           </button>
         </div>
         
-        {/* Call to Action Visual */}
-        <div 
-          aria-hidden="true"
-          className="inline-flex items-center justify-center w-full px-4 py-3 bg-gray-50 dark:bg-gray-700/50 text-gray-900 dark:text-white font-medium rounded-xl group-hover:bg-primary-600 group-hover:text-white dark:group-hover:bg-primary-500 transition-all duration-300 gap-2 mt-auto"
-        >
-          {buttonText}
-          <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+        {/* Action Buttons Container */}
+        <div className="grid grid-cols-2 gap-3 mt-auto pt-2">
+          {/* View Details Button - Enhanced with scale and color animations */}
+          <div 
+            aria-hidden="true"
+            className="inline-flex items-center justify-center px-3 py-2.5 bg-gray-50 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 font-medium text-sm rounded-xl transition-all duration-300 gap-2 border border-transparent hover:scale-105 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 hover:shadow-md active:scale-95 cursor-pointer"
+          >
+            {detailsBtnText}
+            <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
+
+          <button 
+            onClick={handleVisitSite}
+            className="inline-flex items-center justify-center px-3 py-2.5 bg-primary-600 hover:bg-primary-700 text-white font-medium text-sm rounded-xl transition-all duration-300 gap-2 shadow-sm hover:shadow-primary-500/20 focus:outline-none focus:ring-2 focus:ring-primary-500 transform hover:scale-105 active:scale-95"
+          >
+            {launchBtnText}
+            <ExternalLink className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </article>

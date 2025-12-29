@@ -29,7 +29,8 @@ export const Home: React.FC<HomeProps> = ({ t, projects, onClearSearch }) => {
               key={project.id}
               data={project}
               details={t.projects[project.translationKey]}
-              buttonText={t.visitSite}
+              detailsBtnText={t.visitSite}
+              launchBtnText={t.goToSite}
             />
           ))}
         </div>

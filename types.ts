@@ -15,6 +15,7 @@ export interface Translation {
   footerRights: string;
   feedback: string;
   visitSite: string;
+  goToSite: string;
   searchPlaceholder: string;
   noResults: string;
   share: string;

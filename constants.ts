@@ -46,6 +46,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© Noam Gold AI 2025",
     feedback: "Send Feedback",
     visitSite: "View Details",
+    goToSite: "Go to Page",
     searchPlaceholder: "Search topics...",
     noResults: "No projects found matching your search.",
     share: "Share Hub",
@@ -94,6 +95,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© Noam Gold AI 2025",
     feedback: "发送反馈",
     visitSite: "查看详情",
+    goToSite: "访问页面",
     searchPlaceholder: "搜索主题...",
     noResults: "未找到匹配的项目。",
     share: "分享中心",
@@ -142,6 +144,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© Noam Gold AI 2025",
     feedback: "प्रतिक्रिया भेजें",
     visitSite: "विवरण देखें",
+    goToSite: "पेज पर जाएं",
     searchPlaceholder: "विषय खोजें...",
     noResults: "आपकी खोज से मेल खाने वाला कोई प्रोजेक्ट नहीं मिला।",
     share: "साझा करें",
@@ -168,7 +171,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         title: "मास्टर पायथन",
         description: "पायथन प्रोग्रामिंग के लिए व्यापक गाइड, बुनियादी से उन्नत विषयों तक।",
         longDescription: "आपके पहले 'हैलो वर्ल्ड' से लेकर जटिल डेटा साइंस प्रोजेक्ट्स तक। यह पाठ्यक्रम आधुनिक पायथन पैटर्न, एसिंक्रोनस प्रोग्रामिंग और लोकप्रिय फ्रेमवर्क को शामिल करता है।",
-        features: ["डेटा स्ट्रक्चर्स और एल्गोरिदम", "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग", "AsyncIO और समवर्ती", "वेब फ्रेमवर्क (FastAPI/Django)"]
+        features: ["कम्प्यूटेशनल डेटा संरचनाएं", "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग", "AsyncIO और समवर्ती", "वेब फ्रेमवर्क (FastAPI/Django)"]
       },
       machineLearning: {
         title: "मशीन लर्निंग मास्टरक्लास",
@@ -190,6 +193,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© Noam Gold AI 2025",
     feedback: "Отправить отзыв",
     visitSite: "Подробнее",
+    goToSite: "На сайт",
     searchPlaceholder: "Поиск тем...",
     noResults: "Проекты по вашему запросу не найдены.",
     share: "Поделиться",
@@ -238,6 +242,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© נעם גולד AI 2025",
     feedback: "שלח משוב",
     visitSite: "הצג פרטים",
+    goToSite: "עבור לאתר",
     searchPlaceholder: "חפש נושאים...",
     noResults: "לא נמצאו פרויקטים תואמים לחיפוש שלך.",
     share: "שתף",
@@ -286,6 +291,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© Noam Gold AI 2025",
     feedback: "Feedback senden",
     visitSite: "Details anzeigen",
+    goToSite: "Zur Seite",
     searchPlaceholder: "Themen suchen...",
     noResults: "Keine Projekte gefunden.",
     share: "Teilen",
@@ -334,6 +340,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© Noam Gold AI 2025",
     feedback: "Enviar comentarios",
     visitSite: "Ver detalles",
+    goToSite: "Ir a la web",
     searchPlaceholder: "Buscar temas...",
     noResults: "No se encontraron proyectos.",
     share: "Compartir",
@@ -360,7 +367,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         title: "Dominar Python",
         description: "Guía completa de programación en Python, desde temas básicos hasta avanzados.",
         longDescription: "Desde tu primer 'Hola Mundo' hasta complejos proyectos de ciencia de datos. Este plan de estudios cubre patrones modernos de Python y programación asíncrona.",
-        features: ["Estructuras de Datos y Algoritmos", "Programación Orientada a Objetos", "AsyncIO y Concurrencia", "Frameworks Web (FastAPI/Django)"]
+        features: ["Estructuras de Datos y Algoritmos", "Programación Ориентированная Объектно-ориентированное Programming", "AsyncIO y Concurrencia", "Frameworks Web (FastAPI/Django)"]
       },
       machineLearning: {
         title: "Masterclass de Aprendizaje Automático",
@@ -382,6 +389,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "© Noam Gold AI 2025",
     feedback: "Envoyer des commentaires",
     visitSite: "Voir les détails",
+    goToSite: "Aller sur le site",
     searchPlaceholder: "Rechercher...",
     noResults: "Aucun projet trouvé.",
     share: "Partager",
@@ -408,7 +416,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         title: "Maîtriser Python",
         description: "Guide complet de la programmation Python, des bases aux sujets avancés.",
         longDescription: "De votre premier 'Hello World' aux projets complexes de science des données. Ce programme couvre les modèles Python modernes et la programmation asynchrone.",
-        features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrence", "Frameworks Web (FastAPI/Django)"]
+        features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrencia", "Frameworks Web (FastAPI/Django)"]
       },
       machineLearning: {
         title: "Masterclass en Apprentissage Automatique",
