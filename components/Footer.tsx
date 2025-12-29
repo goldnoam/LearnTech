@@ -1,5 +1,5 @@
-import React from 'react';
-import { Mail, Heart, Share2, Twitter, Linkedin, Facebook, Link as LinkIcon } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Heart, Twitter, Linkedin, Facebook, Link as LinkIcon, Check } from 'lucide-react';
 import { Translation } from '../types';
 
 interface FooterProps {
@@ -7,6 +7,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ translation }) => {
+  const [copied, setCopied] = useState(false);
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
   const shareText = translation.title;
 
@@ -24,7 +25,8 @@ export const Footer: React.FC<FooterProps> = ({ translation }) => {
         break;
       case 'copy':
         navigator.clipboard.writeText(currentUrl);
-        // Could add toast notification here
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
         return;
     }
     if (url) window.open(url, '_blank', 'width=600,height=400');
@@ -46,10 +48,10 @@ export const Footer: React.FC<FooterProps> = ({ translation }) => {
             </div>
             
             <a
-              href="mailto:gold.noam@gmail.com"
-              className="flex items-center gap-2 px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-primary-500 hover:text-white dark:hover:bg-primary-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105"
+              href="mailto:goldnoamai@gmail.com"
+              className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-500 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4 transition-transform group-hover:-rotate-12" />
               <span className="font-medium">{translation.feedback}</span>
             </a>
           </div>
@@ -61,31 +63,31 @@ export const Footer: React.FC<FooterProps> = ({ translation }) => {
             <div className="flex items-center gap-3">
               <button 
                 onClick={() => handleShare('twitter')} 
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#1DA1F2] transition-all duration-300 transform hover:scale-110" 
-                aria-label="Share on Twitter"
+                className="p-2.5 rounded-full hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2] transition-all duration-300 transform hover:scale-125 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]" 
+                aria-label="Share Hub on Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <Twitter className="w-5 h-5 transition-transform group-hover:rotate-12" />
               </button>
               <button 
                 onClick={() => handleShare('linkedin')} 
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#0A66C2] transition-all duration-300 transform hover:scale-110" 
-                aria-label="Share on LinkedIn"
+                className="p-2.5 rounded-full hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] transition-all duration-300 transform hover:scale-125 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#0A66C2]" 
+                aria-label="Share Hub on LinkedIn"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5 transition-transform group-hover:-rotate-12" />
               </button>
               <button 
                 onClick={() => handleShare('facebook')} 
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#1877F2] transition-all duration-300 transform hover:scale-110" 
-                aria-label="Share on Facebook"
+                className="p-2.5 rounded-full hover:bg-[#1877F2]/10 hover:text-[#1877F2] transition-all duration-300 transform hover:scale-125 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#1877F2]" 
+                aria-label="Share Hub on Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-5 h-5 transition-transform group-hover:rotate-12" />
               </button>
               <button 
                 onClick={() => handleShare('copy')} 
-                className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-primary-500 transition-all duration-300 transform hover:scale-110" 
-                aria-label="Copy Link"
+                className={`p-2.5 rounded-full transition-all duration-300 transform hover:scale-125 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 ${copied ? 'bg-green-500/10 text-green-500' : 'hover:bg-primary-500/10 hover:text-primary-500'}`} 
+                aria-label="Copy Hub Link"
               >
-                <LinkIcon className="w-5 h-5" />
+                {copied ? <Check className="w-5 h-5" /> : <LinkIcon className="w-5 h-5" />}
               </button>
             </div>
           </div>
