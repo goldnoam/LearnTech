@@ -24,6 +24,18 @@ export const PROJECTS: ProjectData[] = [
     image: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80&w=800',
     link: 'https://master-python.vercel.app',
     translationKey: 'python'
+  },
+  {
+    id: 'machine-learning',
+    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
+    link: 'https://edge-ai-masterclass.vercel.app/',
+    translationKey: 'machineLearning'
+  },
+  {
+    id: 'design-patterns',
+    image: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800',
+    link: 'https://designpatterns.vercel.app',
+    translationKey: 'designPatterns'
   }
 ];
 
@@ -61,6 +73,18 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "Comprehensive guide to Python programming, from basics to advanced topics.",
         longDescription: "From your first 'Hello World' to complex data science projects. This curriculum covers modern Python patterns, asynchronous programming, and popular frameworks.",
         features: ["Data Structures & Algorithms", "Object-Oriented Programming", "AsyncIO & Concurrency", "Web Frameworks (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "Machine Learning Masterclass",
+        description: "Master the foundations of Machine Learning and Edge AI.",
+        longDescription: "A deep dive into the world of Machine Learning, focusing on algorithms, data processing, and deploying models to edge devices. This masterclass bridges the gap between theory and real-world application.",
+        features: ["Neural Networks", "Edge AI Deployment", "Data Preprocessing", "TensorFlow & PyTorch"]
+      },
+      designPatterns: {
+        title: "Master Design Patterns",
+        description: "Master software architecture with essential design patterns and best practices.",
+        longDescription: "Explore the fundamental blueprints of software engineering. This guide covers classic Gang of Four patterns, modern architectural styles, and principles for writing maintainable, scalable code.",
+        features: ["Creational Patterns", "Structural Patterns", "Behavioral Patterns", "SOLID Principles"]
       }
     }
   },
@@ -97,6 +121,18 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "Python 编程综合指南，从基础知识到高级主题。",
         longDescription: "从您的第一个 'Hello World' 到复杂的数据科学项目。本课程涵盖现代 Python 模式、异步编程和流行框架。",
         features: ["数据结构与算法", "面向对象编程", "AsyncIO 和并发", "Web 框架 (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "机器学习大师班",
+        description: "掌握机器学习和边缘人工智能的基础。",
+        longDescription: "深入研究机器学习世界，重点关注算法、数据处理以及将模型部署到边缘设备。 这种大师班弥合了理论与实际应用之间的差距。",
+        features: ["神经网络", "边缘人工智能部署", "数据预处理", "TensorFlow 和 PyTorch"]
+      },
+      designPatterns: {
+        title: "精通设计模式",
+        description: "通过基本设计模式和最佳实践掌握软件架构。",
+        longDescription: "探索软件工程的基本蓝图。本指南涵盖了经典的 GoF 模式、现代架构风格以及编写可维护、可扩展代码的原则。",
+        features: ["创建型模式", "结构型模式", "行为型模式", "SOLID 原则"]
       }
     }
   },
@@ -133,6 +169,18 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "पायथन प्रोग्रामिंग के लिए व्यापक गाइड, बुनियादी से उन्नत विषयों तक।",
         longDescription: "आपके पहले 'हैलो वर्ल्ड' से लेकर जटिल डेटा साइंस प्रोजेक्ट्स तक। यह पाठ्यक्रम आधुनिक पायथन पैटर्न, एसिंक्रोनस प्रोग्रामिंग और लोकप्रिय फ्रेमवर्क को शामिल करता है।",
         features: ["डेटा स्ट्रक्चर्स और एल्गोरिदम", "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग", "AsyncIO और समवर्ती", "वेब फ्रेमवर्क (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "मशीन लर्निंग मास्टरक्लास",
+        description: "मशीन लर्निंग और एज एआई की नींव में महारत हासिल करें।",
+        longDescription: "मशीन लर्निंग की दुनिया में एक गहरा गोता, एल्गोरिदम, डेटा प्रोसेसिंग और एज डिवाइस पर मॉडल तैनात करने पर ध्यान केंद्रित करना। यह मास्टरक्लास सिद्धांत और वास्तविक दुनिया के अनुप्रयोग के बीच की खाई को पाटता है।",
+        features: ["न्यूरल नेटवर्क", "एज एआई डिप्लॉयमेंट", "डेटा प्रीप्रोसेसिंग", "TensorFlow और PyTorch"]
+      },
+      designPatterns: {
+        title: "मास्टर डिज़ाइन पैटर्न",
+        description: "आवश्यक डिज़ाइन पैटर्न और सर्वोत्तम प्रथाओं के साथ सॉफ़्टवेयर आर्किटेक्चर में महारत हासिल करें।",
+        longDescription: "सॉफ़्टवेयर इंजीनियरिंग के मूलभूत ब्लूप्रिंट का अन्वेषण करें। यह मार्गदर्शिका क्लासिक GoF पैटर्न, आधुनिक वास्तुशिल्प शैलियों और बनाए रखने योग्य, स्केलेबल कोड लिखने के सिद्धांतों को कवर करती है।",
+        features: ["रचनात्मक पैटर्न", "संरचनात्मक पैटर्न", "व्यवहार पैटर्न", "SOLID सिद्धांत"]
       }
     }
   },
@@ -169,6 +217,18 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "Полное руководство по программированию на Python: от основ до продвинутых тем.",
         longDescription: "От вашего первого 'Hello World' до сложных проектов по науке о данных. Этот учебный план охватывает современные паттерны Python и асинхронное программирование.",
         features: ["Структуры данных и алгоритмы", "Объектно-ориентированное программирование", "AsyncIO и многопоточность", "Веб-фреймворки (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "Мастер-класс по машинному обучению",
+        description: "Освойте основы машинного обучения и Edge AI.",
+        longDescription: "Глубокое погружение в мир машинного обучения с акцентом на алгоритмы, обработку данных и развертывание моделей на граничных устройствах. Этот мастер-класс устраняет разрыв между теорией и реальным применением.",
+        features: ["Нейронные сети", "Развертывание Edge AI", "Предобработка данных", "TensorFlow и PyTorch"]
+      },
+      designPatterns: {
+        title: "Мастер паттернов проектирования",
+        description: "Освойте архитектуру программного обеспечения с помощью основных паттернов проектирования.",
+        longDescription: "Изучите фундаментальные чертежи программной инженерии. Это руководство охватывает классические паттерны GoF, современные архитектурные стили и принципы написания поддерживаемого кода.",
+        features: ["Порождающие паттерны", "Структурные паттерны", "Поведенческие паттерны", "Принципы SOLID"]
       }
     }
   },
@@ -205,12 +265,24 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "מדריך מקיף לתכנות בפייתון, מהיסודות ועד לנושאים מתקדמים.",
         longDescription: "מה-'Hello World' הראשון שלכם ועד פרויקטים מורכבים במדעי הנתונים. תוכנית הלימודים מכסה תבניות פייתון מודרניות, תכנות אסינכרוני ופריימוורקים פופולריים.",
         features: ["מבני נתונים ואלגוריתמים", "תכנות מונחה עצמים", "AsyncIO ומקביליות", "פריימוורקים ל-Web (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "מאסטר בקורס למידת מכונה",
+        description: "שלטו ביסודות של למידת מכונה ו-Edge AI.",
+        longDescription: "צלילה עמוקה לעולם של למידת מכונה, תוך התמקדות באלגוריתמים, עיבוד נתונים ופריסת מודלים למכשירי קצה. הקורס מגשר על הפער בין תיאוריה ליישום בעולם האמיתי.",
+        features: ["רשתות עצביות", "פריסת Edge AI", "עיבוד מקדים של נתונים", "TensorFlow & PyTorch"]
+      },
+      designPatterns: {
+        title: "תבניות עיצוב",
+        description: "שלוט בארכיטקטורת תוכנה עם תבניות עיצוב חיוניות ושיטות עבודה מומלצות.",
+        longDescription: "חקור את אבני היסוד של הנדסת תוכנה. המדריך מכסה תבניות GoF קלאסיות, סגנונות ארכיטקטורה מודרניים ועקרונות לכתיבת קוד תחזוקתי וניתן להרחבה.",
+        features: ["תבניות יצירה", "תבניות מבנה", "תבניות התנהגות", "עקרונות SOLID"]
       }
     }
   },
   [Language.DE]: {
     title: "Tech-Lernzentrum",
-    subtitle: "Ihr Tor zur Beherrschung moderner Technologien, von Netzwerken bis hin zu KI und Hardware.",
+    subtitle: "Ihr Tor zur Beherrschung moderner Technologien, von Netzwerken bis hin zu KI and Hardware.",
     footerRights: "© Noam Gold AI 2025",
     feedback: "Feedback senden",
     visitSite: "Details anzeigen",
@@ -241,6 +313,18 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "Umfassender Leitfaden zur Python-Programmierung, von den Grundlagen bis zu fortgeschrittenen Themen.",
         longDescription: "Von Ihrem ersten 'Hello World' bis zu komplexen Data-Science-Projekten. Dieser Lehrplan behandelt moderne Python-Muster und asynchrone Programmierung.",
         features: ["Datenstrukturen & Algorithmen", "Objektorientierte Programmierung", "AsyncIO & Nebenläufigkeit", "Web-Frameworks (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "Maschinelles Lernen Masterclass",
+        description: "Meistern Sie die Grundlagen von Machine Learning and Edge AI.",
+        longDescription: "Ein tiefes Eintauchen in die Welt des maschinellen Lernens, mit Schwerpunkt auf Algorithmen, Datenverarbeitung und der Bereitstellung von Modellen auf Edge-Geräten. Diese Masterclass schließt die Lücke zwischen Theorie und realer Anwendung.",
+        features: ["Neuronale Netze", "Edge-KI-Bereitstellung", "Datenvorverarbeitung", "TensorFlow & PyTorch"]
+      },
+      designPatterns: {
+        title: "Design Patterns meistern",
+        description: "Meistern Sie die Softwarearchitektur mit den wichtigsten Entwurfsmustern.",
+        longDescription: "Erforschen Sie die grundlegenden Blaupausen des Software Engineering. Dieser Leitfaden deckt klassische GoF-Muster, moderne Architekturstile und Prinzipien ab.",
+        features: ["Erzeugungsmuster", "Strukturmuster", "Verhaltensmuster", "SOLID-Prinzipien"]
       }
     }
   },
@@ -268,7 +352,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       },
       sbc: {
         title: "Dominar SBC",
-        description: "Explora el mundo de los ordenadores de placa única como Raspberry Pi y Arduino.",
+        description: "Explora el world de los ordenadores de placa única como Raspberry Pi y Arduino.",
         longDescription: "Sumérgete en el mundo del hardware con ordenadores de placa única. Aprende a interactuar con sensores, controlar actuadores y construir dispositivos IoT.",
         features: ["Programación GPIO", "Integración de Sensores", "Conectividad IoT", "Linux para Sistemas Embebidos"]
       },
@@ -277,6 +361,18 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "Guía completa de programación en Python, desde temas básicos hasta avanzados.",
         longDescription: "Desde tu primer 'Hola Mundo' hasta complejos proyectos de ciencia de datos. Este plan de estudios cubre patrones modernos de Python y programación asíncrona.",
         features: ["Estructuras de Datos y Algoritmos", "Programación Orientada a Objetos", "AsyncIO y Concurrencia", "Frameworks Web (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "Masterclass de Aprendizaje Automático",
+        description: "Domina los fundamentos del aprendizaje automático y la IA perimetral.",
+        longDescription: "Una inmersión profunda en el mundo del aprendizaje automático, centrándose en algoritmos, procesamiento de datos y despliegue de modelos en dispositivos perimetrales. Esta masterclass cierra la brecha entre la teoría y la aplicación en el mundo real.",
+        features: ["Redes Neuronales", "Despliegue de IA Perimetral", "Preprocesamiento de Datos", "TensorFlow y PyTorch"]
+      },
+      designPatterns: {
+        title: "Dominar Patrones de Diseño",
+        description: "Domina la arquitectura de software con patrones de diseño esenciales.",
+        longDescription: "Explora los planos fundamentales de la ingeniería de software. Esta guía cubre los patrones clásicos de GoF, los estilos arquitectónicos modernos y los principios de código.",
+        features: ["Patrones Creacionales", "Patrones Estructurales", "Patrones de Comportamiento", "Principios SOLID"]
       }
     }
   },
@@ -313,6 +409,18 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         description: "Guide complet de la programmation Python, des bases aux sujets avancés.",
         longDescription: "De votre premier 'Hello World' aux projets complexes de science des données. Ce programme couvre les modèles Python modernes et la programmation asynchrone.",
         features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrence", "Frameworks Web (FastAPI/Django)"]
+      },
+      machineLearning: {
+        title: "Masterclass en Apprentissage Automatique",
+        description: "Maîtrisez les fondements de l'apprentissage automatique et de l'Edge AI.",
+        longDescription: "Une plongée profonde dans le monde de l'apprentissage automatique, axée sur les algorithmes, le traitement des données et le déploiement de modèles sur des appareils périphériques. Cette masterclass comble le fossé entre la théorie et l'application réelle.",
+        features: ["Réseaux Neuronaux", "Déploiement Edge AI", "Prétraitement des Données", "TensorFlow & PyTorch"]
+      },
+      designPatterns: {
+        title: "Maîtriser les Design Patterns",
+        description: "Maîtrisez l'architecture logicielle avec les modèles de conception essentiels.",
+        longDescription: "Explorez les plans fondamentaux du génie logiciel. Ce guide couvre les modèles GoF classiques, les styles architecturaux modernes et les principes de code.",
+        features: ["Patrons de création", "Patrons de structure", "Patrons de comportement", "Principes SOLID"]
       }
     }
   }

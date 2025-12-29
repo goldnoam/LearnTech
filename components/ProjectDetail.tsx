@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, CheckCircle } from 'lucide-react';
 import { Translation, ProjectData } from '../types';
 
@@ -11,8 +11,22 @@ interface ProjectDetailProps {
 export const ProjectDetail: React.FC<ProjectDetailProps> = ({ t, projects }) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { hash } = useLocation();
 
   const project = projects.find(p => p.id === id);
+
+  // Effect to handle scrolling to hash sections
+  useEffect(() => {
+    if (hash) {
+      const elementId = hash.replace('#', '');
+      const element = document.getElementById(elementId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [hash, project]);
 
   if (!project) {
     return (
@@ -35,7 +49,8 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ t, projects }) => 
       {/* Back Button */}
       <button
         onClick={() => navigate('/')}
-        className="group flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white mb-8 transition-colors"
+        className="group flex items-center gap-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white mb-8 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 rounded-lg px-2"
+        aria-label="Back to project list"
       >
         <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
         <span className="font-medium">Back to Projects</span>
@@ -47,7 +62,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ t, projects }) => 
           <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800 bg-gray-100 dark:bg-gray-800">
              <img
               src={project.image}
-              alt={details.title}
+              alt={`${details.title} showcase`}
               className="w-full h-auto object-cover"
             />
           </div>
@@ -57,7 +72,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ t, projects }) => 
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-primary-500/30 transform hover:-translate-y-1"
+              className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-primary-500/30 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-primary-500/50"
             >
               <span>Visit Website</span>
               <ExternalLink className="w-5 h-5" />
@@ -74,14 +89,14 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ t, projects }) => 
             {details.description}
           </p>
           
-          <div className="prose dark:prose-invert max-w-none mb-10">
+          <div id="about" className="prose dark:prose-invert max-w-none mb-10 scroll-mt-24">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">About the Project</h3>
             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
               {details.longDescription}
             </p>
           </div>
 
-          <div>
+          <div id="features" className="scroll-mt-24">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Key Features</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {details.features.map((feature, index) => (
@@ -89,7 +104,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ t, projects }) => 
                   key={index}
                   className="flex items-start gap-3 p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-100 dark:border-gray-700"
                 >
-                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" aria-hidden="true" />
                   <span className="text-gray-700 dark:text-gray-200 font-medium">{feature}</span>
                 </div>
               ))}

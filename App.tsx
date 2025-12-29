@@ -270,11 +270,11 @@ function App() {
       <Footer translation={t} />
 
       {/* Scroll To Top Button - Fixed container with static child for proper Tooltip positioning */}
-      <div className={`fixed bottom-8 right-8 z-40 transition-all duration-300 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
+      <div className={`fixed bottom-8 right-8 z-50 transition-all duration-500 ease-out transform ${showScrollTop ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-75 pointer-events-none'}`}>
         <Tooltip content="Scroll to Top" position="top">
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 transition-transform duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            className="p-3 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 hover:shadow-primary-500/30 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-6 h-6" />

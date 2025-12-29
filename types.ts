@@ -23,6 +23,8 @@ export interface Translation {
     aiTools: ProjectDetails;
     sbc: ProjectDetails;
     python: ProjectDetails;
+    machineLearning: ProjectDetails;
+    designPatterns: ProjectDetails;
   };
 }
 
@@ -37,5 +39,5 @@ export interface ProjectData {
   id: string;
   image: string;
   link: string;
-  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python';
+  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns';
 }
