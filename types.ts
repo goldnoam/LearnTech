@@ -26,6 +26,7 @@ export interface Translation {
     python: ProjectDetails;
     machineLearning: ProjectDetails;
     designPatterns: ProjectDetails;
+    agenticStack: ProjectDetails;
   };
 }
 
@@ -40,5 +41,5 @@ export interface ProjectData {
   id: string;
   image: string;
   link: string;
-  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns';
+  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns' | 'agenticStack';
 }

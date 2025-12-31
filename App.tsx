@@ -7,6 +7,7 @@ import { ProjectDetail } from './components/ProjectDetail';
 import { PROJECTS, TRANSLATIONS } from './constants';
 import { Language } from './types';
 import { Tooltip } from './components/Tooltip';
+import { OnboardingTour } from './components/OnboardingTour';
 
 function App() {
   // Theme State
@@ -31,6 +32,9 @@ function App() {
   // Scroll to top state
   const [showScrollTop, setShowScrollTop] = useState(false);
 
+  // Onboarding State
+  const [showTour, setShowTour] = useState(false);
+
   // Route location for scrolling
   const { pathname } = useLocation();
 
@@ -48,6 +52,16 @@ function App() {
       localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
+
+  // Check for first-time visit for tour
+  useEffect(() => {
+    const hasSeenTour = localStorage.getItem('hasSeenTour');
+    if (!hasSeenTour) {
+      // Delay slightly for visual effect
+      const timer = setTimeout(() => setShowTour(true), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Handle Scroll to top on route change
   useEffect(() => {
@@ -92,6 +106,11 @@ function App() {
     });
   };
 
+  const handleCompleteTour = () => {
+    localStorage.setItem('hasSeenTour', 'true');
+    setShowTour(false);
+  };
+
   // Language Map for Display
   const languageNames: Record<Language, string> = {
     [Language.EN]: 'English',
@@ -117,6 +136,8 @@ function App() {
   return (
     <div className={`min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950 transition-colors duration-300 ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
       
+      {showTour && <OnboardingTour onComplete={handleCompleteTour} />}
+
       {/* Navbar */}
       <nav className="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/70 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -133,7 +154,7 @@ function App() {
             </div>
 
             {/* Search Bar - Center */}
-            <div className="flex-1 max-w-md mx-auto hidden md:block">
+            <div id="nav-search" className="flex-1 max-w-md mx-auto hidden md:block">
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
                   <Tooltip content="Search Projects">
@@ -190,7 +211,7 @@ function App() {
             <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
               
               {/* Language Selector */}
-              <div className="relative">
+              <div id="nav-lang" className="relative">
                 <Tooltip content="Select Language">
                   <button
                     onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
@@ -232,15 +253,17 @@ function App() {
               </div>
 
               {/* Theme Toggle */}
-              <Tooltip content={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}>
-                <button
-                  onClick={() => setIsDark(!isDark)}
-                  className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-110 hover:rotate-45 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  aria-label="Toggle Theme"
-                >
-                  {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-gray-700" />}
-                </button>
-              </Tooltip>
+              <div id="nav-theme">
+                <Tooltip content={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}>
+                  <button
+                    onClick={() => setIsDark(!isDark)}
+                    className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-110 hover:rotate-45 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    aria-label="Toggle Theme"
+                  >
+                    {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-gray-700" />}
+                  </button>
+                </Tooltip>
+              </div>
 
             </div>
           </div>
@@ -269,7 +292,7 @@ function App() {
 
       <Footer translation={t} />
 
-      {/* Scroll To Top Button - Polished entry and hover interaction */}
+      {/* Scroll To Top Button */}
       <div className={`fixed bottom-8 right-8 z-50 transition-all duration-700 cubic-bezier(0.34, 1.56, 0.64, 1) transform ${showScrollTop ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-50 pointer-events-none'}`}>
         <Tooltip content="Scroll to Top" position="top">
           <button

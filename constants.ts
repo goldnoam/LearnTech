@@ -2,6 +2,12 @@ import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 'agentic-stack',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
+    link: 'https://agentic-stack.vercel.app',
+    translationKey: 'agenticStack'
+  },
+  {
     id: 'networking',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
     link: 'https://net-learn.vercel.app',
@@ -51,6 +57,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "No projects found matching your search.",
     share: "Share Hub",
     projects: {
+      agenticStack: {
+        title: "Master Agentic Stack",
+        description: "Build autonomous AI agents and intelligent multi-agent workflows.",
+        longDescription: "Learn to build complex AI systems that can reason, plan, and execute tasks autonomously. This curriculum covers agent orchestration, tool use, memory management, and multi-agent collaboration frameworks.",
+        features: ["Agent Orchestration", "Tool & Function Calling", "Memory & Context Management", "Autonomous Workflows"]
+      },
       networking: {
         title: "Learn Networking",
         description: "Deep dive into network protocols, architecture, and security fundamentals.",
@@ -100,6 +112,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "未找到匹配的项目。",
     share: "分享中心",
     projects: {
+      agenticStack: {
+        title: "精通代理堆栈",
+        description: "构建自主 AI 代理和智能多代理工作流。",
+        longDescription: "学习构建能够自主推理、计划和执行任务的复杂 AI 系统。本课程涵盖代理编排、工具使用、内存管理和多代理协作框架。",
+        features: ["代理编排", "工具和函数调用", "内存与上下文管理", "自主工作流"]
+      },
       networking: {
         title: "学习网络技术",
         description: "深入了解网络协议、架构和安全基础知识。",
@@ -149,6 +167,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "आपकी खोज से मेल खाने वाला कोई प्रोजेक्ट नहीं मिला।",
     share: "साझा करें",
     projects: {
+      agenticStack: {
+        title: "मास्टर एजेंटिक स्टैक",
+        description: "स्वायत्त एआई एजेंट और बुद्धिमान मल्टी-एजेंट वर्कफ़्लो बनाएं।",
+        longDescription: "जटिल एआई सिस्टम बनाना सीखें जो स्वायत्त रूप से तर्क कर सकें, योजना बना सकें और कार्यों को निष्पादित कर सकें। यह पाठ्यक्रम एजेंट ऑर्केस्ट्रेशन, टूल उपयोग, मेमोरी प्रबंधन और मल्टी-एजेंट सहयोग फ्रेमवर्क को कवर करता है।",
+        features: ["एजेंट ऑर्केस्ट्रेशन", "टूल और फंक्शन कॉलिंग", "मेमोरी और संदर्भ प्रबंधन", "स्वायत्त वर्कफ़्लो"]
+      },
       networking: {
         title: "नेटवर्किंग सीखें",
         description: "नेटवर्क प्रोटोकॉल, आर्किटेक्चर और सुरक्षा बुनियादी बातों में गहराई से उतरें।",
@@ -198,6 +222,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "Проекты по вашему запросу не найдены.",
     share: "Поделиться",
     projects: {
+      agenticStack: {
+        title: "Мастер Agentic Stack",
+        description: "Создание автономных ИИ-агентов и интеллектуальных мультиагентных рабочих процессов.",
+        longDescription: "Научитесь создавать сложные системы ИИ, которые могут рассуждать, планировать и выполнять задачи автономно. Этот курс охватывает оркестрацию агентов, использование инструментов, управление памятью и платформы совместной работы агентов.",
+        features: ["Оркестрация агентов", "Вызов инструментов и функций", "Управление памятью и контекстом", "Автономные рабочие процессы"]
+      },
       networking: {
         title: "Изучение сетей",
         description: "Погружение в сетевые протоколы, архитектуру и основы безопасности.",
@@ -247,6 +277,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "לא נמצאו פרויקטים תואמים לחיפוש שלך.",
     share: "שתף",
     projects: {
+      agenticStack: {
+        title: "מומחה Agentic Stack",
+        description: "בניית סוכני AI אוטונומיים ותהליכי עבודה אינטליגנטיים מרובי סוכנים.",
+        longDescription: "למדו לבנות מערכות בינה מלאכותית מורכבות שיכולות להסיק, לתכנן ולבצע משימות באופן אוטונומי. תוכנית הלימודים מכסה ניהול סוכנים, שימוש בכלים, ניהול זיכרון ומסגרות שיתוף פעולה בין סוכנים.",
+        features: ["ניהול סוכנים (Orchestration)", "קריאה לכלים ופונקציות", "ניהול זיכרון והקשר", "תהליכי עבודה אוטונומיים"]
+      },
       networking: {
         title: "למד רשתות",
         description: "צלילה עמוקה לפרוטוקולי רשת, ארכיטקטורה ויסודות אבטחת מידע.",
@@ -296,6 +332,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "Keine Projekte gefunden.",
     share: "Teilen",
     projects: {
+      agenticStack: {
+        title: "Agentic Stack meistern",
+        description: "Bauen Sie autonome KI-Agenten und intelligente Multi-Agenten-Workflows.",
+        longDescription: "Lernen Sie, komplexe KI-Systeme zu erstellen, die autonom denken, planen und Aufgaben ausführen können. Dieser Lehrplan umfasst Agenten-Orchestrierung, Tool-Nutzung, Memory-Management und Frameworks für die Zusammenarbeit mehrerer Agenten.",
+        features: ["Agenten-Orchestrierung", "Tool- & Funktionsaufrufe", "Memory- & Kontext-Management", "Autonome Workflows"]
+      },
       networking: {
         title: "Netzwerke lernen",
         description: "Tauchen Sie tief in Netzwerkprotokolle, Architektur und Sicherheitsgrundlagen ein.",
@@ -345,6 +387,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "No se encontraron proyectos.",
     share: "Compartir",
     projects: {
+      agenticStack: {
+        title: "Dominar Agentic Stack",
+        description: "Construye agentes de IA autónomos y flujos de trabajo inteligentes multi-agente.",
+        longDescription: "Aprende a construir sistemas de IA complejos que pueden razonar, planificar y ejecutar tareas de forma autónoma. Este plan de estudios cubre la orquestación de agentes, el uso de herramientas, la gestión de la memoria y los marcos de colaboración multi-agente.",
+        features: ["Orquestación de Agentes", "Llamadas a Herramientas y Funciones", "Gestión de Memoria y Contexto", "Flujos de Trabajo Autónomos"]
+      },
       networking: {
         title: "Aprender Redes",
         description: "Profundiza en protocolos de red, arquitectura y fundamentos de seguridad.",
@@ -367,7 +415,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         title: "Dominar Python",
         description: "Guía completa de programación en Python, desde temas básicos hasta avanzados.",
         longDescription: "Desde tu primer 'Hola Mundo' hasta complejos proyectos de ciencia de datos. Este plan de estudios cubre patrones modernos de Python y programación asíncrona.",
-        features: ["Estructuras de Datos y Algoritmos", "Programación Ориентированная Объектно-ориентированное Programming", "AsyncIO y Concurrencia", "Frameworks Web (FastAPI/Django)"]
+        features: ["Estructuras de Datos y Algoritmos", "Programación Orientada a Objetos", "AsyncIO y Concurrencia", "Frameworks Web (FastAPI/Django)"]
       },
       machineLearning: {
         title: "Masterclass de Aprendizaje Automático",
@@ -394,6 +442,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "Aucun projet trouvé.",
     share: "Partager",
     projects: {
+      agenticStack: {
+        title: "Maîtriser Agentic Stack",
+        description: "Construisez des agents IA autonomes et des workflows intelligents multi-agents.",
+        longDescription: "Apprenez à construire des systèmes d'IA complexes capables de raisonner, de planifier et d'exécuter des tâches de manière autonome. Ce programme couvre l'orchestration des agents, l'utilisation d'outils, la gestion de la mémoire et les frameworks de collaboration multi-agents.",
+        features: ["Orchestration d'Agents", "Appels d'Outils & Fonctions", "Gestion de la Mémoire & du Contexte", "Workflows Autonomes"]
+      },
       networking: {
         title: "Apprendre les Réseaux",
         description: "Plongez dans les protocoles réseau, l'architecture et les fondamentaux de la sécurité.",
@@ -416,7 +470,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         title: "Maîtriser Python",
         description: "Guide complet de la programmation Python, des bases aux sujets avancés.",
         longDescription: "De votre premier 'Hello World' aux projets complexes de science des données. Ce programme couvre les modèles Python modernes et la programmation asynchrone.",
-        features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrencia", "Frameworks Web (FastAPI/Django)"]
+        features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrence", "Frameworks Web (FastAPI/Django)"]
       },
       machineLearning: {
         title: "Masterclass en Apprentissage Automatique",
