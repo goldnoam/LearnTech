@@ -136,17 +136,25 @@ function App() {
   return (
     <div className={`min-h-screen flex flex-col bg-gray-50 dark:bg-gray-950 transition-colors duration-300 ${isRTL ? 'rtl' : 'ltr'}`} dir={isRTL ? 'rtl' : 'ltr'}>
       
+      {/* Skip Link for Accessibility */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg focus:shadow-xl focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       {showTour && <OnboardingTour onComplete={handleCompleteTour} />}
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/70 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/70 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main Navigation">
           <div className="flex justify-between items-center h-16 gap-4">
             
             {/* Logo Area */}
             <div className="flex-shrink-0 flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-500/30">
-                <CircuitBoard className="w-5 h-5" />
+                <CircuitBoard className="w-5 h-5" aria-hidden="true" />
               </div>
               <span className="font-bold text-xl tracking-tight text-gray-900 dark:text-white hidden sm:block">
                 LearnTech
@@ -157,23 +165,23 @@ function App() {
             <div id="nav-search" className="flex-1 max-w-md mx-auto hidden md:block">
               <div className="relative group">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
-                  <Tooltip content="Search Projects">
-                    <Search className="h-4 w-4 text-gray-400 group-focus-within:text-primary-500 transition-all duration-300 transform group-hover:scale-110 cursor-default" />
-                  </Tooltip>
+                  <Search className="h-4 w-4 text-gray-400 group-focus-within:text-primary-500 transition-all duration-300 transform group-hover:scale-110 cursor-default" aria-hidden="true" />
                 </div>
                 <input
-                  type="text"
+                  type="search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="block w-full pl-10 pr-10 py-2 border border-gray-200 dark:border-gray-700 rounded-full leading-5 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white dark:focus:bg-gray-800 transition-all duration-300 sm:text-sm"
                   placeholder={t.searchPlaceholder}
+                  aria-label={t.searchPlaceholder}
                 />
                 {searchQuery && (
                   <div className="absolute inset-y-0 right-0 pr-2 flex items-center">
                     <Tooltip content="Clear Search">
                       <button
                         onClick={() => setSearchQuery('')}
-                        className="p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110 hover:rotate-90"
+                        className="p-1 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110 hover:rotate-90 focus:ring-2 focus:ring-primary-500"
+                        aria-label="Clear Search Query"
                       >
                         <X className="h-4 w-4" />
                       </button>
@@ -187,18 +195,23 @@ function App() {
             <div className="flex md:hidden flex-1 justify-end mr-2">
                  <div className="relative w-full max-w-[160px]">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <Search className="h-4 w-4 text-gray-400" />
+                      <Search className="h-4 w-4 text-gray-400" aria-hidden="true" />
                     </div>
                     <input 
-                      type="text" 
+                      type="search" 
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       className="block w-full pl-9 pr-8 py-1.5 border border-transparent rounded-full leading-5 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-transparent focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary-500 text-sm"
                       placeholder={t.searchPlaceholder}
+                      aria-label={t.searchPlaceholder}
                     />
                     {searchQuery && (
                       <div className="absolute inset-y-0 right-0 pr-1 flex items-center">
-                        <button onClick={() => setSearchQuery('')} className="p-1 text-gray-400 hover:text-gray-600 transition-transform hover:scale-110">
+                        <button 
+                          onClick={() => setSearchQuery('')} 
+                          className="p-1 text-gray-400 hover:text-gray-600 transition-transform hover:scale-110 focus:outline-none focus:ring-1 focus:ring-primary-500 rounded-full"
+                          aria-label="Clear Search"
+                        >
                           <X className="h-3 w-3" />
                         </button>
                       </div>
@@ -218,6 +231,7 @@ function App() {
                     className={`p-2 rounded-full transition-all duration-200 transform hover:scale-110 hover:rotate-12 focus:outline-none focus:ring-2 focus:ring-primary-500 ${isLangMenuOpen ? 'bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400' : 'text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800'}`}
                     aria-label="Select Language"
                     aria-expanded={isLangMenuOpen}
+                    aria-haspopup="true"
                   >
                     <Globe className="w-5 h-5" />
                   </button>
@@ -229,10 +243,15 @@ function App() {
                       className="fixed inset-0 z-10 cursor-default" 
                       onClick={() => setIsLangMenuOpen(false)}
                     />
-                    <div className={`absolute ${isRTL ? 'left-0' : 'right-0'} mt-2 w-56 rounded-xl bg-white dark:bg-gray-800 shadow-xl ring-1 ring-black ring-opacity-5 py-1 z-20 max-h-96 overflow-y-auto transform origin-top-right transition-all`}>
+                    <div 
+                      className={`absolute ${isRTL ? 'left-0' : 'right-0'} mt-2 w-56 rounded-xl bg-white dark:bg-gray-800 shadow-xl ring-1 ring-black ring-opacity-5 py-1 z-20 max-h-96 overflow-y-auto transform origin-top-right transition-all`}
+                      role="menu"
+                      aria-label="Languages"
+                    >
                       {Object.entries(languageNames).map(([key, name]) => (
                         <button
                           key={key}
+                          role="menuitem"
                           onClick={() => {
                             setLang(key as Language);
                             setIsLangMenuOpen(false);
@@ -241,10 +260,10 @@ function App() {
                             lang === key 
                               ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-400 font-medium' 
                               : 'text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700'
-                          } ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}
+                          } ${isRTL ? 'text-right flex-row-reverse' : 'text-left'} focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-700`}
                         >
                           <span>{name}</span>
-                          {lang === key && <Check className="w-4 h-4" />}
+                          {lang === key && <Check className="w-4 h-4" aria-hidden="true" />}
                         </button>
                       ))}
                     </div>
@@ -258,7 +277,7 @@ function App() {
                   <button
                     onClick={() => setIsDark(!isDark)}
                     className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-yellow-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-110 hover:rotate-45 focus:outline-none focus:ring-2 focus:ring-primary-500"
-                    aria-label="Toggle Theme"
+                    aria-label={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
                   >
                     {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-gray-700" />}
                   </button>
@@ -267,11 +286,11 @@ function App() {
 
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Main Content with Routing */}
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow focus:outline-none" tabIndex={-1}>
         <Routes>
           <Route 
             path="/" 
@@ -292,7 +311,7 @@ function App() {
 
       <Footer translation={t} />
 
-      {/* Scroll To Top Button */}
+      {/* Scroll To Top Button - Professionally Styled with Entrance Animation */}
       <div className={`fixed bottom-8 right-8 z-50 transition-all duration-700 cubic-bezier(0.34, 1.56, 0.64, 1) transform ${showScrollTop ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-20 scale-50 pointer-events-none'}`}>
         <Tooltip content="Scroll to Top" position="top">
           <button
@@ -300,7 +319,7 @@ function App() {
             className="group p-3 rounded-full bg-primary-600 text-white shadow-2xl hover:bg-primary-500 hover:shadow-primary-500/40 transition-all duration-300 transform hover:-translate-y-2 active:scale-90 focus:outline-none focus:ring-4 focus:ring-primary-500/50"
             aria-label="Scroll back to top"
           >
-            <ArrowUp className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
+            <ArrowUp className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
           </button>
         </Tooltip>
       </div>

@@ -43,48 +43,48 @@ export const Footer: React.FC<FooterProps> = ({ translation }) => {
                 {translation.footerRights}
               </span>
               <span className="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
-                Made with <Heart className="w-3 h-3 text-red-500 fill-current animate-pulse" /> by Noam Gold
+                Made with <Heart className="w-3 h-3 text-red-500 fill-current animate-pulse" aria-hidden="true" /> by Noam Gold
               </span>
             </div>
             
             <a
               href="mailto:goldnoamai@gmail.com"
-              className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-500 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105"
+              className="group flex items-center gap-2 px-6 py-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-500 transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               <Mail className="w-4 h-4 transition-transform group-hover:-rotate-12" />
               <span className="font-medium">{translation.feedback}</span>
             </a>
           </div>
 
-          <div className="w-full h-px bg-gray-100 dark:bg-gray-800" />
+          <div className="w-full h-px bg-gray-100 dark:bg-gray-800" aria-hidden="true" />
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-gray-500 dark:text-gray-400">
             <span className="text-sm font-medium uppercase tracking-wider">{translation.share}</span>
             <div className="flex items-center gap-3">
               <button 
                 onClick={() => handleShare('twitter')} 
-                className="p-2.5 rounded-full hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2] transition-all duration-300 transform hover:scale-125 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]" 
+                className="p-2.5 rounded-full hover:bg-[#1DA1F2]/10 hover:text-[#1DA1F2] transition-all duration-300 transform hover:scale-110 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]" 
                 aria-label="Share Hub on Twitter"
               >
                 <Twitter className="w-5 h-5 transition-transform group-hover:rotate-12" />
               </button>
               <button 
                 onClick={() => handleShare('linkedin')} 
-                className="p-2.5 rounded-full hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] transition-all duration-300 transform hover:scale-125 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#0A66C2]" 
+                className="p-2.5 rounded-full hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] transition-all duration-300 transform hover:scale-110 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#0A66C2]" 
                 aria-label="Share Hub on LinkedIn"
               >
                 <Linkedin className="w-5 h-5 transition-transform group-hover:-rotate-12" />
               </button>
               <button 
                 onClick={() => handleShare('facebook')} 
-                className="p-2.5 rounded-full hover:bg-[#1877F2]/10 hover:text-[#1877F2] transition-all duration-300 transform hover:scale-125 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#1877F2]" 
+                className="p-2.5 rounded-full hover:bg-[#1877F2]/10 hover:text-[#1877F2] transition-all duration-300 transform hover:scale-110 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-[#1877F2]" 
                 aria-label="Share Hub on Facebook"
               >
                 <Facebook className="w-5 h-5 transition-transform group-hover:rotate-12" />
               </button>
               <button 
                 onClick={() => handleShare('copy')} 
-                className={`p-2.5 rounded-full transition-all duration-300 transform hover:scale-125 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 ${copied ? 'bg-green-500/10 text-green-500' : 'hover:bg-primary-500/10 hover:text-primary-500'}`} 
+                className={`p-2.5 rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary-500 ${copied ? 'bg-green-500/10 text-green-500 shadow-inner' : 'hover:bg-primary-500/10 hover:text-primary-500'}`} 
                 aria-label="Copy Hub Link"
               >
                 {copied ? <Check className="w-5 h-5" /> : <LinkIcon className="w-5 h-5" />}

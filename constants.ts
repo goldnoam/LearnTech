@@ -2,6 +2,12 @@ import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 'testing-tools',
+    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=800',
+    link: 'https://ai-testing-hub.vercel.app/',
+    translationKey: 'testingTools'
+  },
+  {
     id: 'agentic-stack',
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
     link: 'https://agentic-stack.vercel.app',
@@ -57,6 +63,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "No projects found matching your search.",
     share: "Share Hub",
     projects: {
+      testingTools: {
+        title: "Testing Tools Hub",
+        description: "Comprehensive toolkit for modern software testing and quality assurance.",
+        longDescription: "A central repository for the best AI-driven and manual testing tools. Learn about end-to-end testing, unit testing, and automation frameworks to ensure high-quality software delivery.",
+        features: ["AI-Powered Test Generation", "End-to-End Automation", "Performance Benchmarking", "Quality Metrics Dashboard"]
+      },
       agenticStack: {
         title: "Master Agentic Stack",
         description: "Build autonomous AI agents and intelligent multi-agent workflows.",
@@ -112,6 +124,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "未找到匹配的项目。",
     share: "分享中心",
     projects: {
+      testingTools: {
+        title: "测试工具中心",
+        description: "现代软件测试和质量保证的综合工具包。",
+        longDescription: "最好的 AI 驱动和手动测试工具的中央仓库。了解端到端测试、单元测试和自动化框架，以确保高质量的软件交付。",
+        features: ["AI 驱动的测试生成", "端到端自动化", "性能基准测试", "质量指标仪表板"]
+      },
       agenticStack: {
         title: "精通代理堆栈",
         description: "构建自主 AI 代理和智能多代理工作流。",
@@ -167,6 +185,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "आपकी खोज से मेल खाने वाला कोई प्रोजेक्ट नहीं मिला।",
     share: "साझा करें",
     projects: {
+      testingTools: {
+        title: "टेस्टिंग टूल्स हब",
+        description: "आधुनिक सॉफ्टवेयर परीक्षण और गुणवत्ता आश्वासन के लिए व्यापक टूलकिट।",
+        longDescription: "सर्वश्रेष्ठ एआई-संचालित और मैनुअल परीक्षण उपकरणों के लिए एक केंद्रीय भंडार। उच्च गुणवत्ता वाले सॉफ्टवेयर वितरण सुनिश्चित करने के लिए एंड-टू-एंड परीक्षण, यूनिट परीक्षण और स्वचालन फ्रेमवर्क के बारे में जानें।",
+        features: ["एआई-संचालित टेस्ट जनरेशन", "एंड-टू-एंड ऑटोमेशन", "प्रदर्शन बेंचमार्किंग", "क्वालिटी मेट्रिक्स डैशबोर्ड"]
+      },
       agenticStack: {
         title: "मास्टर एजेंटिक स्टैक",
         description: "स्वायत्त एआई एजेंट और बुद्धिमान मल्टी-एजेंट वर्कफ़्लो बनाएं।",
@@ -222,6 +246,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "Проекты по вашему запросу не найдены.",
     share: "Поделиться",
     projects: {
+      testingTools: {
+        title: "Центр Инструментов Тестирования",
+        description: "Комплексный набор инструментов для современного тестирования ПО и контроля качества.",
+        longDescription: "Центральный репозиторий лучших инструментов для автоматизированного и ручного тестирования. Узнайте о сквозном тестировании, модульном тестировании и фреймворках автоматизации.",
+        features: ["Генерация тестов на базе ИИ", "Сквозная автоматизация", "Бенчмаркинг производительности", "Панель метрик качества"]
+      },
       agenticStack: {
         title: "Мастер Agentic Stack",
         description: "Создание автономных ИИ-агентов и интеллектуальных мультиагентных рабочих процессов.",
@@ -277,6 +307,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "לא נמצאו פרויקטים תואמים לחיפוש שלך.",
     share: "שתף",
     projects: {
+      testingTools: {
+        title: "מרכז כלי בדיקה",
+        description: "ערכת כלים מקיפה לבדיקות תוכנה מודרניות ואבטחת איכות.",
+        longDescription: "מאגר מרכזי לכלי הבדיקה הטובים ביותר, מונעי AI וידניים. למדו על בדיקות מקצה לקצה, בדיקות יחידה ומסגרות אוטומציה להבטחת תוכנה באיכות גבוהה.",
+        features: ["יצירת בדיקות מונעת AI", "אוטומציה מקצה לקצה", "בדיקות ביצועים", "לוח מדדי איכות"]
+      },
       agenticStack: {
         title: "מומחה Agentic Stack",
         description: "בניית סוכני AI אוטונומיים ותהליכי עבודה אינטליגנטיים מרובי סוכנים.",
@@ -332,6 +368,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "Keine Projekte gefunden.",
     share: "Teilen",
     projects: {
+      testingTools: {
+        title: "Testing Tools Hub",
+        description: "Umfassendes Toolkit für moderne Softwaretests und Qualitätssicherung.",
+        longDescription: "Ein zentrales Repository für die besten KI-gestützten und manuellen Testwerkzeuge. Erfahren Sie alles über End-to-End-Tests, Unit-Tests und Automatisierungs-Frameworks.",
+        features: ["KI-gestützte Testgenerierung", "End-to-End-Automatisierung", "Leistungs-Benchmarking", "Qualitätsmetrik-Dashboard"]
+      },
       agenticStack: {
         title: "Agentic Stack meistern",
         description: "Bauen Sie autonome KI-Agenten und intelligente Multi-Agenten-Workflows.",
@@ -387,6 +429,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "No se encontraron proyectos.",
     share: "Compartir",
     projects: {
+      testingTools: {
+        title: "Hub de Herramientas de Prueba",
+        description: "Kit de herramientas integral para las pruebas de software modernas y la garantía de calidad.",
+        longDescription: "Un repositorio central para las mejores herramientas de prueba manuales y basadas en IA. Aprenda sobre pruebas de extremo a extremo, pruebas unitarias y marcos de automatización.",
+        features: ["Generación de Pruebas con IA", "Automatización de Extremo a Extremo", "Pruebas de Rendimiento", "Panel de Métricas de Calidad"]
+      },
       agenticStack: {
         title: "Dominar Agentic Stack",
         description: "Construye agentes de IA autónomos y flujos de trabajo inteligentes multi-agente.",
@@ -442,6 +490,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     noResults: "Aucun projet trouvé.",
     share: "Partager",
     projects: {
+      testingTools: {
+        title: "Hub des Outils de Test",
+        description: "Boîte à outils complète pour les tests logiciels modernes et l'assurance qualité.",
+        longDescription: "Un répertoire central pour les meilleurs outils de test manuels et pilotés par l'IA. Apprenez-en davantage sur les tests de bout en bout, les tests unitaires et les frameworks d'automatisation.",
+        features: ["Génération de tests par IA", "Automatisation de bout en bout", "Analyse de performance", "Tableau de bord de qualité"]
+      },
       agenticStack: {
         title: "Maîtriser Agentic Stack",
         description: "Construisez des agents IA autonomes et des workflows intelligents multi-agents.",
@@ -470,7 +524,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         title: "Maîtriser Python",
         description: "Guide complet de la programmation Python, des bases aux sujets avancés.",
         longDescription: "De votre premier 'Hello World' aux projets complexes de science des données. Ce programme couvre les modèles Python modernes et la programmation asynchrone.",
-        features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrence", "Frameworks Web (FastAPI/Django)"]
+        features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrencia", "Frameworks Web (FastAPI/Django)"]
       },
       machineLearning: {
         title: "Masterclass en Apprentissage Automatique",

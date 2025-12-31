@@ -103,21 +103,21 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ data, details, details
         <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 translate-y-2 group-hover:translate-y-0">
           <button 
             onClick={(e) => handleShare(e, 'twitter')}
-            className="p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full text-gray-500 dark:text-gray-400 hover:text-[#1DA1F2] hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
+            className="p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full text-gray-500 dark:text-gray-400 hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 dark:hover:bg-[#1DA1F2]/20 transition-all duration-300 transform hover:scale-110 hover:rotate-6 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1DA1F2]"
             aria-label="Share on Twitter"
           >
             <Twitter className="w-4 h-4" />
           </button>
           <button 
             onClick={(e) => handleShare(e, 'linkedin')}
-            className="p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full text-gray-500 dark:text-gray-400 hover:text-[#0A66C2] hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0A66C2]"
+            className="p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full text-gray-500 dark:text-gray-400 hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 dark:hover:bg-[#0A66C2]/20 transition-all duration-300 transform hover:scale-110 hover:-rotate-6 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0A66C2]"
             aria-label="Share on LinkedIn"
           >
             <Linkedin className="w-4 h-4" />
           </button>
           <button 
             onClick={(e) => handleShare(e, 'copy')}
-            className={`p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 ${copied ? 'text-green-500' : 'text-gray-500 dark:text-gray-400 hover:text-primary-500'}`}
+            className={`p-2.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-full transition-all duration-300 transform hover:scale-110 active:scale-95 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 ${copied ? 'text-green-500 bg-green-500/10' : 'text-gray-500 dark:text-gray-400 hover:text-primary-500 hover:bg-primary-500/10'}`}
             aria-label="Copy link"
           >
             {copied ? <Check className="w-4 h-4" /> : <LinkIcon className="w-4 h-4" />}
