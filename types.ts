@@ -1,13 +1,15 @@
 export enum Language {
   EN = 'en',
-  ZH = 'zh', // Chinese
-  HI = 'hi', // Hindi (Indy)
+  ZH = 'zh',
+  HI = 'hi',
   RU = 'ru',
   HE = 'he',
   DE = 'de',
   ES = 'es',
   FR = 'fr'
 }
+
+export type FontSize = 'sm' | 'base' | 'lg';
 
 export interface Translation {
   title: string;
@@ -19,6 +21,9 @@ export interface Translation {
   searchPlaceholder: string;
   noResults: string;
   share: string;
+  exportResults: string;
+  clear: string;
+  fontSize: string;
   projects: {
     networking: ProjectDetails;
     aiTools: ProjectDetails;
@@ -28,6 +33,7 @@ export interface Translation {
     designPatterns: ProjectDetails;
     agenticStack: ProjectDetails;
     testingTools: ProjectDetails;
+    masterCpp: ProjectDetails;
   };
 }
 
@@ -42,5 +48,5 @@ export interface ProjectData {
   id: string;
   image: string;
   link: string;
-  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns' | 'agenticStack' | 'testingTools';
+  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns' | 'agenticStack' | 'testingTools' | 'masterCpp';
 }

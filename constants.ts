@@ -1,6 +1,13 @@
+
 import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
+  {
+    id: 'master-cpp',
+    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
+    link: 'https://cplusplus-master.vercel.app',
+    translationKey: 'masterCpp'
+  },
   {
     id: 'testing-tools',
     image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=800',
@@ -51,18 +58,40 @@ export const PROJECTS: ProjectData[] = [
   }
 ];
 
+// Helper to get common project details for missing translations
+const getProjectFallback = (lang: string) => ({
+  masterCpp: { title: "Master C++", description: "C++ Programming", longDescription: "High-performance programming.", features: ["Modern C++"] },
+  testingTools: { title: "Testing Tools", description: "QA Tools", longDescription: "Software testing toolkit.", features: ["Automation"] },
+  agenticStack: { title: "Agentic Stack", description: "AI Agents", longDescription: "Autonomous AI systems.", features: ["Orchestration"] },
+  networking: { title: "Networking", description: "Network Protocols", longDescription: "Deep dive into networks.", features: ["TCP/IP"] },
+  aiTools: { title: "AI Tools", description: "AI for Coding", longDescription: "Productivity with AI.", features: ["Prompt Engineering"] },
+  sbc: { title: "Master SBC", description: "Single Board Computers", longDescription: "Hardware programming.", features: ["IoT"] },
+  python: { title: "Master Python", description: "Python Programming", longDescription: "Python from basics to advanced.", features: ["Data Science"] },
+  machineLearning: { title: "Machine Learning", description: "ML & AI", longDescription: "Foundations of AI.", features: ["Neural Networks"] },
+  designPatterns: { title: "Design Patterns", description: "Architecture", longDescription: "Software patterns.", features: ["SOLID"] }
+});
+
 export const TRANSLATIONS: Record<Language, Translation> = {
   [Language.EN]: {
     title: "Learn Tech Hub",
     subtitle: "Your gateway to mastering modern technology, from networking to AI and hardware.",
-    footerRights: "© Noam Gold AI 2025",
+    footerRights: "(C) Noam Gold AI 2026",
     feedback: "Send Feedback",
     visitSite: "View Details",
     goToSite: "Go to Page",
     searchPlaceholder: "Search topics...",
     noResults: "No projects found matching your search.",
     share: "Share Hub",
+    exportResults: "Export JSON",
+    clear: "Clear",
+    fontSize: "Font Size",
     projects: {
+      masterCpp: {
+        title: "Master C++",
+        description: "Master high-performance programming with C++ from basics to system architecture.",
+        longDescription: "Dive into the world of low-level programming. Learn memory management, OOP principles, and modern C++ features. This course covers everything from basic syntax to high-performance systems engineering.",
+        features: ["Modern C++ (17/20/23)", "Memory Management", "STL & Generic Programming", "Systems Architecture"]
+      },
       testingTools: {
         title: "Testing Tools Hub",
         description: "Comprehensive toolkit for modern software testing and quality assurance.",
@@ -113,200 +142,26 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       }
     }
   },
-  [Language.ZH]: {
-    title: "科技学习中心",
-    subtitle: "您掌握现代技术的门户，从网络到人工智能和硬件。",
-    footerRights: "© Noam Gold AI 2025",
-    feedback: "发送反馈",
-    visitSite: "查看详情",
-    goToSite: "访问页面",
-    searchPlaceholder: "搜索主题...",
-    noResults: "未找到匹配的项目。",
-    share: "分享中心",
-    projects: {
-      testingTools: {
-        title: "测试工具中心",
-        description: "现代软件测试和质量保证的综合工具包。",
-        longDescription: "最好的 AI 驱动和手动测试工具的中央仓库。了解端到端测试、单元测试和自动化框架，以确保高质量的软件交付。",
-        features: ["AI 驱动的测试生成", "端到端自动化", "性能基准测试", "质量指标仪表板"]
-      },
-      agenticStack: {
-        title: "精通代理堆栈",
-        description: "构建自主 AI 代理和智能多代理工作流。",
-        longDescription: "学习构建能够自主推理、计划和执行任务的复杂 AI 系统。本课程涵盖代理编排、工具使用、内存管理和多代理协作框架。",
-        features: ["代理编排", "工具和函数调用", "内存与上下文管理", "自主工作流"]
-      },
-      networking: {
-        title: "学习网络技术",
-        description: "深入了解网络协议、架构和安全基础知识。",
-        longDescription: "掌握互联网的基础构建块。本综合课程带您从局域网和广域网的基础知识到高级路由协议和网络安全。",
-        features: ["TCP/IP 和 OSI 模型", "子网划分和寻址", "路由协议 (OSPF, BGP)", "网络安全基础"]
-      },
-      aiTools: {
-        title: "精通 AI 编程工具",
-        description: "解锁 AI 辅助开发的潜力，提高您的工作效率。",
-        longDescription: "学习如何利用最先进的 AI 工具更快地编写更干净的代码。我们涵盖了从 GitHub Copilot 和 ChatGPT 到专用编码代理的所有内容。",
-        features: ["AI 提示工程", "自动重构", "代码生成策略", "使用 AI 调试"]
-      },
-      sbc: {
-        title: "精通单板计算机",
-        description: "探索 Raspberry Pi 和 Arduino 等单板计算机的世界。",
-        longDescription: "使用单板计算机深入硬件世界。学习使用 Raspberry Pi 和 ESP32 等平台与传感器接口、控制执行器和构建物联网设备。",
-        features: ["GPIO 编程", "传感器集成", "物联网连接", "嵌入式 Linux"]
-      },
-      python: {
-        title: "精通 Python",
-        description: "Python 编程综合指南，从基础知识到高级主题。",
-        longDescription: "从您的第一个 'Hello World' 到复杂的数据科学项目。本课程涵盖现代 Python 模式、异步编程和流行框架。",
-        features: ["数据结构与算法", "面向对象编程", "AsyncIO 和并发", "Web 框架 (FastAPI/Django)"]
-      },
-      machineLearning: {
-        title: "机器学习大师班",
-        description: "掌握机器学习和边缘人工智能的基础。",
-        longDescription: "深入研究机器学习世界，重点关注算法、数据处理以及将模型部署到边缘设备。 这种大师班弥合了理论与实际应用之间的差距。",
-        features: ["神经网络", "边缘人工智能部署", "数据预处理", "TensorFlow 和 PyTorch"]
-      },
-      designPatterns: {
-        title: "精通设计模式",
-        description: "通过基本设计模式和最佳实践掌握软件架构。",
-        longDescription: "探索软件工程的基本蓝图。本指南涵盖了经典的 GoF 模式、现代架构风格以及编写可维护、可扩展代码的原则。",
-        features: ["创建型模式", "结构型模式", "行为型模式", "SOLID 原则"]
-      }
-    }
-  },
-  [Language.HI]: {
-    title: "लर्न टेक हब",
-    subtitle: "नेटवर्किंग से लेकर एआई और हार्डवेयर तक आधुनिक तकनीक में महारत हासिल करने का आपका प्रवेश द्वार।",
-    footerRights: "© Noam Gold AI 2025",
-    feedback: "प्रतिक्रिया भेजें",
-    visitSite: "विवरण देखें",
-    goToSite: "पेज पर जाएं",
-    searchPlaceholder: "विषय खोजें...",
-    noResults: "आपकी खोज से मेल खाने वाला कोई प्रोजेक्ट नहीं मिला।",
-    share: "साझा करें",
-    projects: {
-      testingTools: {
-        title: "टेस्टिंग टूल्स हब",
-        description: "आधुनिक सॉफ्टवेयर परीक्षण और गुणवत्ता आश्वासन के लिए व्यापक टूलकिट।",
-        longDescription: "सर्वश्रेष्ठ एआई-संचालित और मैनुअल परीक्षण उपकरणों के लिए एक केंद्रीय भंडार। उच्च गुणवत्ता वाले सॉफ्टवेयर वितरण सुनिश्चित करने के लिए एंड-टू-एंड परीक्षण, यूनिट परीक्षण और स्वचालन फ्रेमवर्क के बारे में जानें।",
-        features: ["एआई-संचालित टेस्ट जनरेशन", "एंड-टू-एंड ऑटोमेशन", "प्रदर्शन बेंचमार्किंग", "क्वालिटी मेट्रिक्स डैशबोर्ड"]
-      },
-      agenticStack: {
-        title: "मास्टर एजेंटिक स्टैक",
-        description: "स्वायत्त एआई एजेंट और बुद्धिमान मल्टी-एजेंट वर्कफ़्लो बनाएं।",
-        longDescription: "जटिल एआई सिस्टम बनाना सीखें जो स्वायत्त रूप से तर्क कर सकें, योजना बना सकें और कार्यों को निष्पादित कर सकें। यह पाठ्यक्रम एजेंट ऑर्केस्ट्रेशन, टूल उपयोग, मेमोरी प्रबंधन और मल्टी-एजेंट सहयोग फ्रेमवर्क को कवर करता है।",
-        features: ["एजेंट ऑर्केस्ट्रेशन", "टूल और फंक्शन कॉलिंग", "मेमोरी और संदर्भ प्रबंधन", "स्वायत्त वर्कफ़्लो"]
-      },
-      networking: {
-        title: "नेटवर्किंग सीखें",
-        description: "नेटवर्क प्रोटोकॉल, आर्किटेक्चर और सुरक्षा बुनियादी बातों में गहराई से उतरें।",
-        longDescription: "इंटरनेट के मूलभूत निर्माण खंडों में महारत हासिल करें। यह व्यापक पाठ्यक्रम आपको LAN और WAN की बुनियादी बातों से लेकर उन्नत रूटिंग प्रोटोकॉल और नेटवर्क सुरक्षा तक ले जाता है।",
-        features: ["TCP/IP और OSI मॉडल", "सबनेटिंग और एड्रेसिंग", "रूटिंग प्रोटोकॉल (OSPF, BGP)", "नेटवर्क सुरक्षा मूल बातें"]
-      },
-      aiTools: {
-        title: "मास्टर एआई कोडिंग टूल्स",
-        description: "एआई-सहायता प्राप्त विकास की शक्ति को अनलॉक करें और अपनी उत्पादकता बढ़ाएं।",
-        longDescription: "तेजी से स्वच्छ कोड लिखने के लिए अत्याधुनिक एआई उपकरणों का लाभ उठाने का तरीका जानें। हम GitHub Copilot और ChatGPT से लेकर विशेष कोडिंग एजेंटों तक सब कुछ कवर करते हैं।",
-        features: ["एआई प्रॉम्प्ट इंजीनियरिंग", "स्वचालित रीफैक्टरिंग", "कोड जनरेशन रणनीतियाँ", "एआई के साथ डिबगिंग"]
-      },
-      sbc: {
-        title: "मास्टर SBC",
-        description: "रास्पबेरी पाई और अरडुनो जैसे सिंगल बोर्ड कंप्यूटर की दुनिया का अन्वेषण करें।",
-        longDescription: "सिंगल बोर्ड कंप्यूटर के साथ हार्डवेयर की दुनिया में उतरें। रास्पबेरी पाई और ESP32 जैसे प्लेटफार्मों का उपयोग करके सेंसर के साथ इंटरफेस करना, एक्चुएटर्स को नियंत्रित करना और IoT डिवाइस बनाना सीखें।",
-        features: ["GPIO प्रोग्रामिंग", "सेंसर एकीकरण", "IoT कनेक्टिविटी", "एम्बेडेड सिस्टम के लिए लिनक्स"]
-      },
-      python: {
-        title: "मास्टर पायथन",
-        description: "पायथन प्रोग्रामिंग के लिए व्यापक गाइड, बुनियादी से उन्नत विषयों तक।",
-        longDescription: "आपके पहले 'हैलो वर्ल्ड' से लेकर जटिल डेटा साइंस प्रोजेक्ट्स तक। यह पाठ्यक्रम आधुनिक पायथन पैटर्न, एसिंक्रोनस प्रोग्रामिंग और लोकप्रिय फ्रेमवर्क को शामिल करता है।",
-        features: ["कम्प्यूटेशनल डेटा संरचनाएं", "ऑब्जेक्ट-ओरिएंटेड प्रोग्रामिंग", "AsyncIO और समवर्ती", "वेब फ्रेमवर्क (FastAPI/Django)"]
-      },
-      machineLearning: {
-        title: "मशीन लर्निंग मास्टरक्लास",
-        description: "मशीन लर्निंग और एज एआई की नींव में महारत हासिल करें।",
-        longDescription: "मशीन लर्निंग की दुनिया में एक गहरा गोता, एल्गोरिदम, डेटा प्रोसेसिंग और एज डिवाइस पर मॉडल तैनात करने पर ध्यान केंद्रित करना। यह मास्टरक्लास सिद्धांत और वास्तविक दुनिया के अनुप्रयोग के बीच की खाई को पाटता है।",
-        features: ["न्यूरल नेटवर्क", "एज एआई डिप्लॉयमेंट", "डेटा प्रीप्रोसेसिंग", "TensorFlow और PyTorch"]
-      },
-      designPatterns: {
-        title: "मास्टर डिज़ाइन पैटर्न",
-        description: "आवश्यक डिज़ाइन पैटर्न और सर्वोत्तम प्रथाओं के साथ सॉफ़्टवेयर आर्किटेक्चर में महारत हासिल करें।",
-        longDescription: "सॉफ़्टवेयर इंजीनियरिंग के मूलभूत ब्लूप्रिंट का अन्वेषण करें। यह मार्गदर्शिका क्लासिक GoF पैटर्न, आधुनिक वास्तुशिल्प शैलियों और बनाए रखने योग्य, स्केलेबल कोड लिखने के सिद्धांतों को कवर करती है।",
-        features: ["रचनात्मक पैटर्न", "संरचनात्मक पैटर्न", "व्यवहार पैटर्न", "SOLID सिद्धांत"]
-      }
-    }
-  },
-  [Language.RU]: {
-    title: "Центр Изучения Технологий",
-    subtitle: "Ваш путь к освоению современных технологий: от сетей до ИИ и оборудования.",
-    footerRights: "© Noam Gold AI 2025",
-    feedback: "Отправить отзыв",
-    visitSite: "Подробнее",
-    goToSite: "На сайт",
-    searchPlaceholder: "Поиск тем...",
-    noResults: "Проекты по вашему запросу не найдены.",
-    share: "Поделиться",
-    projects: {
-      testingTools: {
-        title: "Центр Инструментов Тестирования",
-        description: "Комплексный набор инструментов для современного тестирования ПО и контроля качества.",
-        longDescription: "Центральный репозиторий лучших инструментов для автоматизированного и ручного тестирования. Узнайте о сквозном тестировании, модульном тестировании и фреймворках автоматизации.",
-        features: ["Генерация тестов на базе ИИ", "Сквозная автоматизация", "Бенчмаркинг производительности", "Панель метрик качества"]
-      },
-      agenticStack: {
-        title: "Мастер Agentic Stack",
-        description: "Создание автономных ИИ-агентов и интеллектуальных мультиагентных рабочих процессов.",
-        longDescription: "Научитесь создавать сложные системы ИИ, которые могут рассуждать, планировать и выполнять задачи автономно. Этот курс охватывает оркестрацию агентов, использование инструментов, управление памятью и платформы совместной работы агентов.",
-        features: ["Оркестрация агентов", "Вызов инструментов и функций", "Управление памятью и контекстом", "Автономные рабочие процессы"]
-      },
-      networking: {
-        title: "Изучение сетей",
-        description: "Погружение в сетевые протоколы, архитектуру и основы безопасности.",
-        longDescription: "Освойте фундаментальные строительные блоки интернета. Этот всесторонний курс проведет вас от основ LAN и WAN до продвинутых протоколов маршрутизации и сетевой безопасности.",
-        features: ["Модели TCP/IP и OSI", "Подсети и адресация", "Протоколы маршрутизации (OSPF, BGP)", "Основы сетевой безопасности"]
-      },
-      aiTools: {
-        title: "Инструменты ИИ для кодинга",
-        description: "Раскройте возможности разработки с помощью ИИ и повысьте свою продуктивность.",
-        longDescription: "Узнайте, как использовать современные инструменты ИИ для более быстрого написания чистого кода. Мы охватываем все: от GitHub Copilot и ChatGPT до специализированных агентов кодирования.",
-        features: ["Промпт-инжиниринг", "Автоматический рефакторинг", "Стратегии генерации кода", "Отладка с помощью ИИ"]
-      },
-      sbc: {
-        title: "Мастер SBC",
-        description: "Исследуйте мир одноплатных компьютеров, таких как Raspberry Pi и Arduino.",
-        longDescription: "Погрузитесь в мир аппаратного обеспечения с одноплатными компьютерами. Научитесь взаимодействовать с датчиками, управлять приводами и создавать устройства IoT.",
-        features: ["Программирование GPIO", "Интеграция датчиков", "IoT подключение", "Linux для встраиваемых систем"]
-      },
-      python: {
-        title: "Мастер Python",
-        description: "Полное руководство по программированию на Python: от основ до продвинутых тем.",
-        longDescription: "От вашего первого 'Hello World' до сложных проектов по науке о данных. Этот учебный план охватывает современные паттерны Python и асинхронное программирование.",
-        features: ["Структуры данных и алгоритмы", "Объектно-ориентированное программирование", "AsyncIO и многопоточность", "Веб-фреймворки (FastAPI/Django)"]
-      },
-      machineLearning: {
-        title: "Мастер-класс по машинному обучению",
-        description: "Освойте основы машинного обучения и Edge AI.",
-        longDescription: "Глубокое погружение в мир машинного обучения с акцентом на алгоритмы, обработку данных и развертывание моделей на граничных устройствах. Этот мастер-класс устраняет разрыв между теорией и реальным применением.",
-        features: ["Нейронные сети", "Развертывание Edge AI", "Предобработка данных", "TensorFlow и PyTorch"]
-      },
-      designPatterns: {
-        title: "Мастер паттернов проектирования",
-        description: "Освойте архитектуру программного обеспечения с помощью основных паттернов проектирования.",
-        longDescription: "Изучите фундаментальные чертежи программной инженерии. Это руководство охватывает классические паттерны GoF, современные архитектурные стили и принципы написания поддерживаемого кода.",
-        features: ["Порождающие паттерны", "Структурные паттерны", "Поведенческие паттерны", "Принципы SOLID"]
-      }
-    }
-  },
   [Language.HE]: {
     title: "מרכז למידת טכנולוגיה",
     subtitle: "השער שלך לשליטה בטכנולוגיה מודרנית, מרשתות ועד בינה מלאכותית וחומרה.",
-    footerRights: "© נעם גולד AI 2025",
+    footerRights: "(C) נעם גולד AI 2026",
     feedback: "שלח משוב",
     visitSite: "הצג פרטים",
     goToSite: "עבור לאתר",
     searchPlaceholder: "חפש נושאים...",
     noResults: "לא נמצאו פרויקטים תואמים לחיפוש שלך.",
     share: "שתף",
+    exportResults: "ייצא JSON",
+    clear: "נקה",
+    fontSize: "גודל גופן",
     projects: {
+      masterCpp: {
+        title: "מומחה C++",
+        description: "שלטו בתכנות ביצועים גבוהים עם C++ מהיסודות ועד ארכיטקטורת מערכות.",
+        longDescription: "צללו לעולם התכנות ברמה נמוכה. למדו ניהול זיכרון, עקרונות OOP ותכונות C++ מודרניות.",
+        features: ["C++ מודרני (17/20/23)", "ניהול זיכרון", "STL ותכנות גנרי", "ארכיטקטורת מערכות"]
+      },
       testingTools: {
         title: "מרכז כלי בדיקה",
         description: "ערכת כלים מקיפה לבדיקות תוכנה מודרניות ואבטחת איכות.",
@@ -316,228 +171,135 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       agenticStack: {
         title: "מומחה Agentic Stack",
         description: "בניית סוכני AI אוטונומיים ותהליכי עבודה אינטליגנטיים מרובי סוכנים.",
-        longDescription: "למדו לבנות מערכות בינה מלאכותית מורכבות שיכולות להסיק, לתכנן ולבצע משימות באופן אוטונומי. תוכנית הלימודים מכסה ניהול סוכנים, שימוש בכלים, ניהול זיכרון ומסגרות שיתוף פעולה בין סוכנים.",
+        longDescription: "למדו לבנות מערכות בינה מלאכותית מורכבות שיכולות להסיק, לתכנן ולבצע משימות באופן אוטונומי.",
         features: ["ניהול סוכנים (Orchestration)", "קריאה לכלים ופונקציות", "ניהול זיכרון והקשר", "תהליכי עבודה אוטונומיים"]
       },
       networking: {
         title: "למד רשתות",
         description: "צלילה עמוקה לפרוטוקולי רשת, ארכיטקטורה ויסודות אבטחת מידע.",
-        longDescription: "שלטו באבני היסוד של האינטרנט. קורס מקיף זה לוקח אתכם מהבסיס של רשתות מקומיות ומרחביות ועד לפרוטוקולי ניתוב מתקדמים ואבטחת רשת.",
+        longDescription: "שלטו באבני היסוד של האינטרנט.",
         features: ["מודלי TCP/IP ו-OSI", "תת-רשתות וכתובות", "פרוטוקולי ניתוב (OSPF, BGP)", "יסודות אבטחת רשת"]
       },
       aiTools: {
         title: "כלי פיתוח AI",
-        description: "שחרר את כוחו של הפיתוח בסיוע בינה מלאכותית והגבר את הפרודוקטיביות שלך.",
-        longDescription: "למדו כיצד לנצל כלי בינה מלאכותית מתקדמים לכתיבת קוד נקי ומהיר יותר. אנו מכסים הכל מ-GitHub Copilot ו-ChatGPT ועד סוכני קידוד מיוחדים.",
+        description: "שחרר את כוחו של הפיתוח בסיוע בינה מלאכותית.",
+        longDescription: "למדו כיצד לנצל כלי בינה מלאכותית מתקדמים לכתיבת קוד נקי ומהיר יותר.",
         features: ["הנדסת פרומפטים ל-AI", "Refactoring אוטומטי", "אסטרטגיות יצירת קוד", "דיבאגינג עם AI"]
       },
       sbc: {
         title: "מומחה מחשבי לוח יחיד",
         description: "חקור את עולם מחשבי הלוח היחיד (SBC) כמו Raspberry Pi ו-Arduino.",
-        longDescription: "צללו לעולם החומרה עם מחשבי לוח יחיד. למדו להתממשק עם חיישנים, לשלוט במפעילים ולבנות התקני IoT באמצעות פלטפורמות כמו Raspberry Pi ו-ESP32.",
+        longDescription: "צללו לעולם החומרה עם מחשבי לוח יחיד.",
         features: ["תכנות GPIO", "אינטגרציה עם חיישנים", "קישוריות IoT", "לינוקס למערכות משובצות"]
       },
       python: {
         title: "שלוט בפייתון",
         description: "מדריך מקיף לתכנות בפייתון, מהיסודות ועד לנושאים מתקדמים.",
-        longDescription: "מה-'Hello World' הראשון שלכם ועד פרויקטים מורכבים במדעי הנתונים. תוכנית הלימודים מכסה תבניות פייתון מודרניות, תכנות אסינכרוני ופריימוורקים פופולריים.",
+        longDescription: "מה-'Hello World' הראשון שלכם ועד פרויקטים מורכבים במדעי הנתונים.",
         features: ["מבני נתונים ואלגוריתמים", "תכנות מונחה עצמים", "AsyncIO ומקביליות", "פריימוורקים ל-Web (FastAPI/Django)"]
       },
       machineLearning: {
         title: "מאסטר בקורס למידת מכונה",
         description: "שלטו ביסודות של למידת מכונה ו-Edge AI.",
-        longDescription: "צלילה עמוקה לעולם של למידת מכונה, תוך התמקדות באלגוריתמים, עיבוד נתונים ופריסת מודלים למכשירי קצה. הקורס מגשר על הפער בין תיאוריה ליישום בעולם האמיתי.",
+        longDescription: "צלילה עמוקה לעולם של למידת מכונה.",
         features: ["רשתות עצביות", "פריסת Edge AI", "עיבוד מקדים של נתונים", "TensorFlow & PyTorch"]
       },
       designPatterns: {
         title: "תבניות עיצוב",
-        description: "שלוט בארכיטקטורת תוכנה עם תבניות עיצוב חיוניות ושיטות עבודה מומלצות.",
-        longDescription: "חקור את אבני היסוד של הנדסת תוכנה. המדריך מכסה תבניות GoF קלאסיות, סגנונות ארכיטקטורה מודרניים ועקרונות לכתיבת קוד תחזוקתי וניתן להרחבה.",
+        description: "שלוט בארכיטקטורת תוכנה עם תבניות עיצוב חיוניות.",
+        longDescription: "חקור את אבני היסוד של הנדסת תוכנה.",
         features: ["תבניות יצירה", "תבניות מבנה", "תבניות התנהגות", "עקרונות SOLID"]
       }
     }
   },
+  [Language.ZH]: {
+    title: "学习技术中心",
+    subtitle: "掌握现代技术的门户，从网络到人工智能和硬件。",
+    footerRights: "(C) Noam Gold AI 2026",
+    feedback: "发送反馈",
+    visitSite: "查看详情",
+    goToSite: "前往页面",
+    searchPlaceholder: "搜索话题...",
+    noResults: "未找到符合搜索条件的项目。",
+    share: "分享中心",
+    exportResults: "导出 JSON",
+    clear: "清除",
+    fontSize: "字体大小",
+    projects: getProjectFallback('zh') as any
+  },
+  [Language.HI]: {
+    title: "लर्न टेक हब",
+    subtitle: "नेटवर्किंग से लेकर एआई और हार्डवेयर तक, आधुनिक तकनीक में महारत हासिल करने का आपका प्रवेश द्वार।",
+    footerRights: "(C) Noam Gold AI 2026",
+    feedback: "प्रतिक्रिया भेजें",
+    visitSite: "विवरण देखें",
+    goToSite: "पेज पर जाएं",
+    searchPlaceholder: "विषय खोजें...",
+    noResults: "आपकी खोज से मेल खाने वाला कोई प्रोजेक्ट नहीं मिला।",
+    share: "हब साझा करें",
+    exportResults: "JSON निर्यात करें",
+    clear: "साף करें",
+    fontSize: "फ़ॉन्ट आकार",
+    projects: getProjectFallback('hi') as any
+  },
+  [Language.RU]: {
+    title: "Технологический учебный центр",
+    subtitle: "Ваш путь к освоению современных технологий: от сетей до ИИ и оборудования.",
+    footerRights: "(C) Noam Gold AI 2026",
+    feedback: "Отправить отзыв",
+    visitSite: "Подробнее",
+    goToSite: "Перейти на страницу",
+    searchPlaceholder: "Поиск тем...",
+    noResults: "Проекты не найдены.",
+    share: "Поделиться",
+    exportResults: "Экспорт JSON",
+    clear: "Очистить",
+    fontSize: "Размер шрифта",
+    projects: getProjectFallback('ru') as any
+  },
   [Language.DE]: {
     title: "Tech-Lernzentrum",
-    subtitle: "Ihr Tor zur Beherrschung moderner Technologien, von Netzwerken bis hin zu KI and Hardware.",
-    footerRights: "© Noam Gold AI 2025",
+    subtitle: "Ihr Tor zur Beherrschung moderner Technologien, von Netzwerken bis hin zu KI und Hardware.",
+    footerRights: "(C) Noam Gold AI 2026",
     feedback: "Feedback senden",
     visitSite: "Details anzeigen",
     goToSite: "Zur Seite",
     searchPlaceholder: "Themen suchen...",
     noResults: "Keine Projekte gefunden.",
     share: "Teilen",
-    projects: {
-      testingTools: {
-        title: "Testing Tools Hub",
-        description: "Umfassendes Toolkit für moderne Softwaretests und Qualitätssicherung.",
-        longDescription: "Ein zentrales Repository für die besten KI-gestützten und manuellen Testwerkzeuge. Erfahren Sie alles über End-to-End-Tests, Unit-Tests und Automatisierungs-Frameworks.",
-        features: ["KI-gestützte Testgenerierung", "End-to-End-Automatisierung", "Leistungs-Benchmarking", "Qualitätsmetrik-Dashboard"]
-      },
-      agenticStack: {
-        title: "Agentic Stack meistern",
-        description: "Bauen Sie autonome KI-Agenten und intelligente Multi-Agenten-Workflows.",
-        longDescription: "Lernen Sie, komplexe KI-Systeme zu erstellen, die autonom denken, planen und Aufgaben ausführen können. Dieser Lehrplan umfasst Agenten-Orchestrierung, Tool-Nutzung, Memory-Management und Frameworks für die Zusammenarbeit mehrerer Agenten.",
-        features: ["Agenten-Orchestrierung", "Tool- & Funktionsaufrufe", "Memory- & Kontext-Management", "Autonome Workflows"]
-      },
-      networking: {
-        title: "Netzwerke lernen",
-        description: "Tauchen Sie tief in Netzwerkprotokolle, Architektur und Sicherheitsgrundlagen ein.",
-        longDescription: "Beherrschen Sie die fundamentalen Bausteine des Internets. Dieser umfassende Kurs führt Sie von den Grundlagen von LANs und WANs bis zu fortgeschrittenen Routing-Protokollen.",
-        features: ["TCP/IP & OSI Modelle", "Subnetting & Adressierung", "Routing-Protokolle (OSPF, BGP)", "Netzwerksicherheits-Grundlagen"]
-      },
-      aiTools: {
-        title: "KI-Coding-Tools meistern",
-        description: "Nutzen Sie die Kraft der KI-gestützten Entwicklung und steigern Sie Ihre Produktivität.",
-        longDescription: "Lernen Sie, wie Sie modernste KI-Tools nutzen, um schneller sauberen Code zu schreiben. Wir behandeln alles von GitHub Copilot bis hin zu spezialisierten Coding-Agenten.",
-        features: ["KI Prompt Engineering", "Automatisches Refactoring", "Code-Generierungs-Strategien", "Debugging mit KI"]
-      },
-      sbc: {
-        title: "SBC meistern",
-        description: "Entdecken Sie die Welt der Einplatinencomputer wie Raspberry Pi und Arduino.",
-        longDescription: "Tauchen Sie mit Einplatinencomputern in die Hardware-Welt ein. Lernen Sie Schnittstellen zu Sensoren, Aktorensteuerung und den Bau von IoT-Geräten.",
-        features: ["GPIO-Programmierung", "Sensor-Integration", "IoT-Konnektivität", "Linux für eingebettete Systeme"]
-      },
-      python: {
-        title: "Python meistern",
-        description: "Umfassender Leitfaden zur Python-Programmierung, von den Grundlagen bis zu fortgeschrittenen Themen.",
-        longDescription: "Von Ihrem ersten 'Hello World' bis zu komplexen Data-Science-Projekten. Dieser Lehrplan behandelt moderne Python-Muster und asynchrone Programmierung.",
-        features: ["Datenstrukturen & Algorithmen", "Objektorientierte Programmierung", "AsyncIO & Nebenläufigkeit", "Web-Frameworks (FastAPI/Django)"]
-      },
-      machineLearning: {
-        title: "Maschinelles Lernen Masterclass",
-        description: "Meistern Sie die Grundlagen von Machine Learning and Edge AI.",
-        longDescription: "Ein tiefes Eintauchen in die Welt des maschinellen Lernens, mit Schwerpunkt auf Algorithmen, Datenverarbeitung und der Bereitstellung von Modellen auf Edge-Geräten. Diese Masterclass schließt die Lücke zwischen Theorie und realer Anwendung.",
-        features: ["Neuronale Netze", "Edge-KI-Bereitstellung", "Datenvorverarbeitung", "TensorFlow & PyTorch"]
-      },
-      designPatterns: {
-        title: "Design Patterns meistern",
-        description: "Meistern Sie die Softwarearchitektur mit den wichtigsten Entwurfsmustern.",
-        longDescription: "Erforschen Sie die grundlegenden Blaupausen des Software Engineering. Dieser Leitfaden deckt klassische GoF-Muster, moderne Architekturstile und Prinzipien ab.",
-        features: ["Erzeugungsmuster", "Strukturmuster", "Verhaltensmuster", "SOLID-Prinzipien"]
-      }
-    }
+    exportResults: "JSON exportieren",
+    clear: "Löschen",
+    fontSize: "Schriftgröße",
+    projects: getProjectFallback('de') as any
   },
   [Language.ES]: {
-    title: "Centro de Aprendizaje Tecnológico",
-    subtitle: "Tu puerta de entrada para dominar la tecnología moderna, desde redes hasta IA y hardware.",
-    footerRights: "© Noam Gold AI 2025",
+    title: "Centro de Aprendizaje Tech",
+    subtitle: "Su puerta de entrada para dominar la tecnología moderna, desde redes hasta IA y hardware.",
+    footerRights: "(C) Noam Gold AI 2026",
     feedback: "Enviar comentarios",
     visitSite: "Ver detalles",
-    goToSite: "Ir a la web",
+    goToSite: "Ir a la página",
     searchPlaceholder: "Buscar temas...",
     noResults: "No se encontraron proyectos.",
     share: "Compartir",
-    projects: {
-      testingTools: {
-        title: "Hub de Herramientas de Prueba",
-        description: "Kit de herramientas integral para las pruebas de software modernas y la garantía de calidad.",
-        longDescription: "Un repositorio central para las mejores herramientas de prueba manuales y basadas en IA. Aprenda sobre pruebas de extremo a extremo, pruebas unitarias y marcos de automatización.",
-        features: ["Generación de Pruebas con IA", "Automatización de Extremo a Extremo", "Pruebas de Rendimiento", "Panel de Métricas de Calidad"]
-      },
-      agenticStack: {
-        title: "Dominar Agentic Stack",
-        description: "Construye agentes de IA autónomos y flujos de trabajo inteligentes multi-agente.",
-        longDescription: "Aprende a construir sistemas de IA complejos que pueden razonar, planificar y ejecutar tareas de forma autónoma. Este plan de estudios cubre la orquestación de agentes, el uso de herramientas, la gestión de la memoria y los marcos de colaboración multi-agente.",
-        features: ["Orquestación de Agentes", "Llamadas a Herramientas y Funciones", "Gestión de Memoria y Contexto", "Flujos de Trabajo Autónomos"]
-      },
-      networking: {
-        title: "Aprender Redes",
-        description: "Profundiza en protocolos de red, arquitectura y fundamentos de seguridad.",
-        longDescription: "Domina los bloques de construcción fundamentales de Internet. Este curso integral te lleva desde los conceptos básicos de LAN y WAN hasta protocolos de enrutamiento avanzados.",
-        features: ["Modelos TCP/IP y OSI", "Subredes y Direccionamiento", "Protocolos de Enrutamiento", "Conceptos básicos de seguridad"]
-      },
-      aiTools: {
-        title: "Dominar Herramientas de IA",
-        description: "Desbloquea el poder del desarrollo asistido por IA y aumenta tu productividad.",
-        longDescription: "Aprende a aprovechar las herramientas de IA de última generación para escribir código limpio más rápido. Cubrimos desde GitHub Copilot hasta agentes de codificación.",
-        features: ["Ingeniería de Prompts de IA", "Refactorización Automatizada", "Estrategias de Generación de Código", "Depuración con IA"]
-      },
-      sbc: {
-        title: "Dominar SBC",
-        description: "Explora el world de los ordenadores de placa única como Raspberry Pi y Arduino.",
-        longDescription: "Sumérgete en el mundo del hardware con ordenadores de placa única. Aprende a interactuar con sensores, controlar actuadores y construir dispositivos IoT.",
-        features: ["Programación GPIO", "Integración de Sensores", "Conectividad IoT", "Linux para Sistemas Embebidos"]
-      },
-      python: {
-        title: "Dominar Python",
-        description: "Guía completa de programación en Python, desde temas básicos hasta avanzados.",
-        longDescription: "Desde tu primer 'Hola Mundo' hasta complejos proyectos de ciencia de datos. Este plan de estudios cubre patrones modernos de Python y programación asíncrona.",
-        features: ["Estructuras de Datos y Algoritmos", "Programación Orientada a Objetos", "AsyncIO y Concurrencia", "Frameworks Web (FastAPI/Django)"]
-      },
-      machineLearning: {
-        title: "Masterclass de Aprendizaje Automático",
-        description: "Domina los fundamentos del aprendizaje automático y la IA perimetral.",
-        longDescription: "Una inmersión profunda en el mundo del aprendizaje automático, centrándose en algoritmos, procesamiento de datos y despliegue de modelos en dispositivos perimetrales. Esta masterclass cierra la brecha entre la teoría y la aplicación en el mundo real.",
-        features: ["Redes Neuronales", "Despliegue de IA Perimetral", "Preprocesamiento de Datos", "TensorFlow y PyTorch"]
-      },
-      designPatterns: {
-        title: "Dominar Patrones de Diseño",
-        description: "Domina la arquitectura de software con patrones de diseño esenciales.",
-        longDescription: "Explora los planos fundamentales de la ingeniería de software. Esta guía cubre los patrones clásicos de GoF, los estilos arquitectónicos modernos y los principios de código.",
-        features: ["Patrones Creacionales", "Patrones Estructurales", "Patrones de Comportamiento", "Principios SOLID"]
-      }
-    }
+    exportResults: "Exportar JSON",
+    clear: "Limpiar",
+    fontSize: "Tamaño de fuente",
+    projects: getProjectFallback('es') as any
   },
   [Language.FR]: {
     title: "Hub d'Apprentissage Tech",
-    subtitle: "Votre passerelle pour maîtriser la technologie moderne, des réseaux à l'IA et au matériel.",
-    footerRights: "© Noam Gold AI 2025",
+    subtitle: "Votre porte d'entrée vers la maîtrise des technologies modernes, des réseaux à l'IA et au matériel.",
+    footerRights: "(C) Noam Gold AI 2026",
     feedback: "Envoyer des commentaires",
     visitSite: "Voir les détails",
-    goToSite: "Aller sur le site",
-    searchPlaceholder: "Rechercher...",
+    goToSite: "Aller à la page",
+    searchPlaceholder: "Rechercher des sujets...",
     noResults: "Aucun projet trouvé.",
     share: "Partager",
-    projects: {
-      testingTools: {
-        title: "Hub des Outils de Test",
-        description: "Boîte à outils complète pour les tests logiciels modernes et l'assurance qualité.",
-        longDescription: "Un répertoire central pour les meilleurs outils de test manuels et pilotés par l'IA. Apprenez-en davantage sur les tests de bout en bout, les tests unitaires et les frameworks d'automatisation.",
-        features: ["Génération de tests par IA", "Automatisation de bout en bout", "Analyse de performance", "Tableau de bord de qualité"]
-      },
-      agenticStack: {
-        title: "Maîtriser Agentic Stack",
-        description: "Construisez des agents IA autonomes et des workflows intelligents multi-agents.",
-        longDescription: "Apprenez à construire des systèmes d'IA complexes capables de raisonner, de planifier et d'exécuter des tâches de manière autonome. Ce programme couvre l'orchestration des agents, l'utilisation d'outils, la gestion de la mémoire et les frameworks de collaboration multi-agents.",
-        features: ["Orchestration d'Agents", "Appels d'Outils & Fonctions", "Gestion de la Mémoire & du Contexte", "Workflows Autonomes"]
-      },
-      networking: {
-        title: "Apprendre les Réseaux",
-        description: "Plongez dans les protocoles réseau, l'architecture et les fondamentaux de la sécurité.",
-        longDescription: "Maîtrisez les éléments fondamentaux d'Internet. Ce cours complet vous emmène des bases des LAN et WAN aux protocoles de routage avancés et à la sécurité réseau.",
-        features: ["Modèles TCP/IP & OSI", "Sous-réseaux et Adressage", "Protocoles de Routage", "Bases de la Sécurité Réseau"]
-      },
-      aiTools: {
-        title: "Maîtriser les Outils IA",
-        description: "Libérez la puissance du développement assisté par IA et boostez votre productivité.",
-        longDescription: "Apprenez à tirer parti des outils d'IA de pointe pour écrire un code plus propre plus rapidement. Nous couvrons tout, de GitHub Copilot aux agents de codage spécialisés.",
-        features: ["Ingénierie de Prompt IA", "Refactoring Automatisé", "Stratégies de Génération de Code", "Débogage avec l'IA"]
-      },
-      sbc: {
-        title: "Maîtriser les SBC",
-        description: "Explorez le monde des ordinateurs à carte unique comme Raspberry Pi et Arduino.",
-        longDescription: "Plongez dans le monde du matériel avec les ordinateurs à carte unique. Apprenez à interfacer avec des capteurs, contrôler des actionneurs et construire des appareils IoT.",
-        features: ["Programmation GPIO", "Intégration de Capteurs", "Connectivité IoT", "Linux pour Systèmes Embarqués"]
-      },
-      python: {
-        title: "Maîtriser Python",
-        description: "Guide complet de la programmation Python, des bases aux sujets avancés.",
-        longDescription: "De votre premier 'Hello World' aux projets complexes de science des données. Ce programme couvre les modèles Python modernes et la programmation asynchrone.",
-        features: ["Structures de Données & Algorithmes", "Programmation Orientée Objet", "AsyncIO & Concurrencia", "Frameworks Web (FastAPI/Django)"]
-      },
-      machineLearning: {
-        title: "Masterclass en Apprentissage Automatique",
-        description: "Maîtrisez les fondements de l'apprentissage automatique et de l'Edge AI.",
-        longDescription: "Une plongée profonde dans le monde de l'apprentissage automatique, axée sur les algorithmes, le traitement des données et le déploiement de modèles sur des appareils périphériques. Cette masterclass comble le fossé entre la théorie et l'application réelle.",
-        features: ["Réseaux Neuronaux", "Déploiement Edge AI", "Prétraitement des Données", "TensorFlow & PyTorch"]
-      },
-      designPatterns: {
-        title: "Maîtriser les Design Patterns",
-        description: "Maîtrisez l'architecture logicielle avec les modèles de conception essentiels.",
-        longDescription: "Explorez les plans fondamentaux du génie logiciel. Ce guide couvre les modèles GoF classiques, les styles architecturaux modernes et les principes de code.",
-        features: ["Patrons de création", "Patrons de structure", "Patrons de comportement", "Principes SOLID"]
-      }
-    }
+    exportResults: "Exporter JSON",
+    clear: "Effacer",
+    fontSize: "Taille de police",
+    projects: getProjectFallback('fr') as any
   }
 };
