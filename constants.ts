@@ -3,6 +3,12 @@ import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 'web-scraping',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
+    link: 'https://webscraping12.vercel.app/',
+    translationKey: 'webScraping'
+  },
+  {
     id: 'master-cpp',
     image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
     link: 'https://cplusplus-master.vercel.app',
@@ -60,6 +66,7 @@ export const PROJECTS: ProjectData[] = [
 
 // Helper to get common project details for missing translations
 const getProjectFallback = (lang: string) => ({
+  webScraping: { title: "Web Scraping", description: "Master Data Extraction", longDescription: "Learn how to extract data from websites efficiently using modern tools.", features: ["Puppeteer & Playwright", "Data Analysis", "Automation"] },
   masterCpp: { title: "Master C++", description: "C++ Programming", longDescription: "High-performance programming.", features: ["Modern C++"] },
   testingTools: { title: "Testing Tools", description: "QA Tools", longDescription: "Software testing toolkit.", features: ["Automation"] },
   agenticStack: { title: "Agentic Stack", description: "AI Agents", longDescription: "Autonomous AI systems.", features: ["Orchestration"] },
@@ -86,6 +93,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "Clear",
     fontSize: "Font Size",
     projects: {
+      webScraping: {
+        title: "Web Scraping",
+        description: "Master the art of automated data extraction from the web.",
+        longDescription: "Learn how to crawl websites, bypass protections, and structure unstructured web data into valuable insights. This guide covers the best tools and practices for ethical and efficient scraping.",
+        features: ["Dynamic Content Handling", "Anti-Bot Evasion", "Data Cleaning", "Scalable Crawlers"]
+      },
       masterCpp: {
         title: "Master C++",
         description: "Master high-performance programming with C++ from basics to system architecture.",
@@ -156,6 +169,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "נקה",
     fontSize: "גודל גופן",
     projects: {
+      webScraping: {
+        title: "איסוף נתונים (Web Scraping)",
+        description: "שלטו באמנות של חילוץ נתונים אוטומטי מהרשת.",
+        longDescription: "למדו כיצד לסרוק אתרים, לעקוף הגנות ולבנות מאגרי נתונים מובנים ממידע לא מובנה.",
+        features: ["טיפול בתוכן דינמי", "עקיפת מערכות אנטי-בוט", "ניקוי נתונים", "סורקים ניתנים להרחבה"]
+      },
       masterCpp: {
         title: "מומחה C++",
         description: "שלטו בתכנות ביצועים גבוהים עם C++ מהיסודות ועד ארכיטקטורת מערכות.",
@@ -233,7 +252,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerRights: "(C) Noam Gold AI 2026",
     feedback: "प्रतिक्रिया भेजें",
     visitSite: "विवरण देखें",
-    goToSite: "पेज पर जाएं",
+    goToSite: "पेג पर जाएं",
     searchPlaceholder: "विषय खोजें...",
     noResults: "आपकी खोज से मेल खाने वाला कोई प्रोजेक्ट नहीं मिला।",
     share: "हब साझा करें",
