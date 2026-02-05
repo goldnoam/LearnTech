@@ -3,13 +3,13 @@ import { Language, Translation, ProjectData } from './types';
 export const PROJECTS: ProjectData[] = [
   {
     id: 'no-code-builder',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
     link: 'https://nocodebuilder12.vercel.app/',
     translationKey: 'noCodeBuilder'
   },
   {
     id: 'python-library-master-hub',
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1518186239717-2e9b136739f6?auto=format&fit=crop&q=80&w=800',
     link: 'https://py-lib-master-hub.vercel.app/',
     translationKey: 'pythonLibraryMasterHub'
   },
@@ -21,13 +21,13 @@ export const PROJECTS: ProjectData[] = [
   },
   {
     id: 'master-cpp',
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=800',
     link: 'https://cplusplus-master.vercel.app',
     translationKey: 'masterCpp'
   },
   {
     id: 'testing-tools',
-    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800',
     link: 'https://ai-testing-hub.vercel.app/',
     translationKey: 'testingTools'
   },
@@ -39,13 +39,13 @@ export const PROJECTS: ProjectData[] = [
   },
   {
     id: 'networking',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800',
     link: 'https://net-learn.vercel.app',
     translationKey: 'networking'
   },
   {
     id: 'ai-tools',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1675271591211-126ad94e495d?auto=format&fit=crop&q=80&w=800',
     link: 'https://master-ai-code-tools.vercel.app',
     translationKey: 'aiTools'
   },
@@ -57,19 +57,19 @@ export const PROJECTS: ProjectData[] = [
   },
   {
     id: 'python',
-    image: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800',
     link: 'https://master-python.vercel.app',
     translationKey: 'python'
   },
   {
     id: 'machine-learning',
-    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&q=80&w=800',
     link: 'https://edge-ai-masterclass.vercel.app/',
     translationKey: 'machineLearning'
   },
   {
     id: 'design-patterns',
-    image: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80&w=800',
     link: 'https://designpatterns.vercel.app',
     translationKey: 'designPatterns'
   }

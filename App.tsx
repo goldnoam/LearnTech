@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { Moon, Sun, Globe, CircuitBoard, Search, X, Check, ArrowUp, Type as TypeIcon, Download } from 'lucide-react';
@@ -8,7 +7,6 @@ import { ProjectDetail } from './components/ProjectDetail';
 import { PROJECTS, TRANSLATIONS } from './constants';
 import { Language, FontSize } from './types';
 import { Tooltip } from './components/Tooltip';
-import { OnboardingTour } from './components/OnboardingTour';
 
 // Language display names for the switcher
 const languageNames: Record<Language, string> = {
@@ -50,9 +48,6 @@ function App() {
 
   // Scroll to top state
   const [showScrollTop, setShowScrollTop] = useState(false);
-
-  // Onboarding State
-  const [showTour, setShowTour] = useState(false);
 
   const { pathname } = useLocation();
   const t = TRANSLATIONS[lang];
@@ -103,15 +98,6 @@ function App() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Check for first-time visit
-  useEffect(() => {
-    const hasSeenTour = localStorage.getItem('hasSeenTour');
-    if (!hasSeenTour) {
-      const timer = setTimeout(() => setShowTour(true), 1200);
-      return () => clearTimeout(timer);
-    }
   }, []);
 
   useEffect(() => {
@@ -172,8 +158,6 @@ function App() {
       {/* Skip Navigation for Accessibility */}
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">Skip to main content</a>
       
-      {showTour && <OnboardingTour onComplete={() => setShowTour(false)} />}
-
       <header className="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/70 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300 shadow-sm" role="banner">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main Navigation">
           <div className="flex justify-between items-center h-16 gap-4">
