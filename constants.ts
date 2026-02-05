@@ -1,7 +1,12 @@
-
 import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
+  {
+    id: 'python-library-master-hub',
+    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
+    link: 'https://py-lib-master-hub.vercel.app/',
+    translationKey: 'pythonLibraryMasterHub'
+  },
   {
     id: 'web-scraping',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
@@ -66,6 +71,7 @@ export const PROJECTS: ProjectData[] = [
 
 // Helper to get common project details for missing translations
 const getProjectFallback = (lang: string) => ({
+  pythonLibraryMasterHub: { title: "Python Library Master Hub", description: "Master Essential Libraries", longDescription: "Deep dive into the most popular Python libraries for data science, automation, and web development.", features: ["NumPy & Pandas", "FastAPI & Flask", "Request & Selenium", "Scikit-Learn"] },
   webScraping: { title: "Web Scraping", description: "Master Data Extraction", longDescription: "Learn how to extract data from websites efficiently using modern tools.", features: ["Puppeteer & Playwright", "Data Analysis", "Automation"] },
   masterCpp: { title: "Master C++", description: "C++ Programming", longDescription: "High-performance programming.", features: ["Modern C++"] },
   testingTools: { title: "Testing Tools", description: "QA Tools", longDescription: "Software testing toolkit.", features: ["Automation"] },
@@ -93,6 +99,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "Clear",
     fontSize: "Font Size",
     projects: {
+      pythonLibraryMasterHub: {
+        title: "Python Library Master Hub",
+        description: "The ultimate guide to the most powerful Python libraries.",
+        longDescription: "Mastering Python means mastering its libraries. This hub provides comprehensive guides, best practices, and real-world examples for the libraries that define the modern Python ecosystem.",
+        features: ["Data Analysis (Pandas, NumPy)", "Web Frameworks (FastAPI)", "Automation (Playwright)", "Visualization (Matplotlib)"]
+      },
       webScraping: {
         title: "Web Scraping",
         description: "Master the art of automated data extraction from the web.",
@@ -169,6 +181,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "נקה",
     fontSize: "גודל גופן",
     projects: {
+      pythonLibraryMasterHub: {
+        title: "מרכז ספריות פייתון",
+        description: "המדריך המקיף לספריות החזקות ביותר של פייתון.",
+        longDescription: "לשלוט בפייתון זה לשלוט בספריות שלה. המרכז הזה מספק מדריכים, פרקטיקות ודוגמאות מהעולם האמיתי לספריות שמגדירות את פייתון המודרנית.",
+        features: ["ניתוח נתונים (Pandas)", "פיתוח Web (FastAPI)", "אוטומציה", "ויזואליזציה"]
+      },
       webScraping: {
         title: "איסוף נתונים (Web Scraping)",
         description: "שלטו באמנות של חילוץ נתונים אוטומטי מהרשת.",
