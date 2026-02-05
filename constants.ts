@@ -2,6 +2,12 @@ import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 'no-code-builder',
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800',
+    link: 'https://nocodebuilder12.vercel.app/',
+    translationKey: 'noCodeBuilder'
+  },
+  {
     id: 'python-library-master-hub',
     image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=800',
     link: 'https://py-lib-master-hub.vercel.app/',
@@ -71,6 +77,7 @@ export const PROJECTS: ProjectData[] = [
 
 // Helper to get common project details for missing translations
 const getProjectFallback = (lang: string) => ({
+  noCodeBuilder: { title: "Build Site without code", description: "No-Code Website Builder", longDescription: "Empower your creativity with our intuitive no-code website builder.", features: ["Drag & Drop Interface", "Responsive Design"] },
   pythonLibraryMasterHub: { title: "Python Library Master Hub", description: "Master Essential Libraries", longDescription: "Deep dive into the most popular Python libraries for data science, automation, and web development.", features: ["NumPy & Pandas", "FastAPI & Flask", "Request & Selenium", "Scikit-Learn"] },
   webScraping: { title: "Web Scraping", description: "Master Data Extraction", longDescription: "Learn how to extract data from websites efficiently using modern tools.", features: ["Puppeteer & Playwright", "Data Analysis", "Automation"] },
   masterCpp: { title: "Master C++", description: "C++ Programming", longDescription: "High-performance programming.", features: ["Modern C++"] },
@@ -99,6 +106,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "Clear",
     fontSize: "Font Size",
     projects: {
+      noCodeBuilder: {
+        title: "Build Site without code",
+        description: "Create professional websites without writing a single line of code.",
+        longDescription: "Empower your creativity with our intuitive no-code website builder. Drag, drop, and customize your way to a stunning online presence. Perfect for entrepreneurs, designers, and hobbyists alike.",
+        features: ["Drag & Drop Interface", "Responsive Design", "SEO Optimized", "Pre-built Components"]
+      },
       pythonLibraryMasterHub: {
         title: "Python Library Master Hub",
         description: "The ultimate guide to the most powerful Python libraries.",
@@ -181,6 +194,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "נקה",
     fontSize: "גודל גופן",
     projects: {
+      noCodeBuilder: {
+        title: "בניית אתרים ללא קוד",
+        description: "צרו אתרים מקצועיים מבלי לכתוב שורת קוד אחת.",
+        longDescription: "העצימו את היצירתיות שלכם עם בונה האתרים האינטואיטיבי שלנו ללא קוד. גררו, שחררו והתאימו אישית את דרככם לנוכחות מקוונת מרשימה. מושלם ליזמים, מעצבים וחובבים כאחד.",
+        features: ["ממשק גרירה ושחרור", "עיצוב רספונסיבי", "אופטימיזציה לקידום אתרים", "רכיבים מוכנים מראש"]
+      },
       pythonLibraryMasterHub: {
         title: "מרכז ספריות פייתון",
         description: "המדריך המקיף לספריות החזקות ביותר של פייתון.",
@@ -265,7 +284,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     projects: getProjectFallback('zh') as any
   },
   [Language.HI]: {
-    title: "लर्न टेक हब",
+    title: "लर्न टेक हב",
     subtitle: "नेटवर्किंग से लेकर एआई और हार्डवेयर तक, आधुनिक तकनीक में महारत हासिल करने का आपका प्रवेश द्वार।",
     footerRights: "(C) Noam Gold AI 2026",
     feedback: "प्रतिक्रिया भेजें",
