@@ -2,6 +2,12 @@ import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 'google-fullstack-tools',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800',
+    link: 'https://googleaitools.vercel.app/',
+    translationKey: 'masterGoogleFullStackTools'
+  },
+  {
     id: 'no-code-builder',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
     link: 'https://nocodebuilder12.vercel.app/',
@@ -77,6 +83,7 @@ export const PROJECTS: ProjectData[] = [
 
 // Helper to get common project details for missing translations
 const getProjectFallback = (lang: string) => ({
+  masterGoogleFullStackTools: { title: "Master Google Full Stack Tools", description: "Google AI & Cloud Ecosystem", longDescription: "Explore the comprehensive Google Cloud and AI stack for full-stack developers.", features: ["Firebase", "Google Cloud", "Gemini API", "Angular/Flutter"] },
   noCodeBuilder: { title: "Build Site without code", description: "No-Code Website Builder", longDescription: "Empower your creativity with our intuitive no-code website builder.", features: ["Drag & Drop Interface", "Responsive Design"] },
   pythonLibraryMasterHub: { title: "Python Library Master Hub", description: "Master Essential Libraries", longDescription: "Deep dive into the most popular Python libraries for data science, automation, and web development.", features: ["NumPy & Pandas", "FastAPI & Flask", "Request & Selenium", "Scikit-Learn"] },
   webScraping: { title: "Web Scraping", description: "Master Data Extraction", longDescription: "Learn how to extract data from websites efficiently using modern tools.", features: ["Puppeteer & Playwright", "Data Analysis", "Automation"] },
@@ -106,6 +113,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "Clear",
     fontSize: "Font Size",
     projects: {
+      masterGoogleFullStackTools: {
+        title: "Master Google Full Stack Tools",
+        description: "Master the complete Google ecosystem for modern full-stack development.",
+        longDescription: "A deep dive into Google's most powerful developer tools. From Firebase for backend services to Google Cloud infrastructure and Gemini AI integration, this guide covers the tools you need to build scalable, AI-driven applications.",
+        features: ["Firebase Backend-as-a-Service", "Gemini AI Integration", "Google Cloud Platform", "Performance Monitoring"]
+      },
       noCodeBuilder: {
         title: "Build Site without code",
         description: "Create professional websites without writing a single line of code.",
@@ -194,6 +207,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "נקה",
     fontSize: "גודל גופן",
     projects: {
+      masterGoogleFullStackTools: {
+        title: "מומחה כלי Google Full Stack",
+        description: "שלטו במערכת האקולוגית השלמה של Google לפיתוח Full Stack מודרני.",
+        longDescription: "צלילה עמוקה לכלי הפיתוח החזקים ביותר של Google. מ-Firebase לשירותי Backend ועד לתשתיות Google Cloud ואינטגרציה של Gemini AI, המדריך הזה מכסה את הכלים הדרושים לבניית אפליקציות מונעות AI וניתנות להרחבה.",
+        features: ["Firebase Backend", "אינטגרציה של Gemini AI", "Google Cloud Platform", "ניטור ביצועים"]
+      },
       noCodeBuilder: {
         title: "בניית אתרים ללא קוד",
         description: "צרו אתרים מקצועיים מבלי לכתוב שורת קוד אחת.",
