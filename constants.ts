@@ -2,6 +2,12 @@ import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 'open-robotics',
+    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd05a?auto=format&fit=crop&q=80&w=800',
+    link: 'https://openrobotics.vercel.app',
+    translationKey: 'openRobotics'
+  },
+  {
     id: 'google-fullstack-tools',
     image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800',
     link: 'https://googleaitools.vercel.app/',
@@ -83,6 +89,7 @@ export const PROJECTS: ProjectData[] = [
 
 // Helper to get common project details for missing translations
 const getProjectFallback = (lang: string) => ({
+  openRobotics: { title: "Open Source For Robotics", description: "Master Robotics Development", longDescription: "Explore the world of open-source robotics, from middleware like ROS to advanced simulation and control systems.", features: ["ROS 2", "Gazebo Simulation", "Computer Vision", "Motion Planning"] },
   masterGoogleFullStackTools: { title: "Master Google Full Stack Tools", description: "Google AI & Cloud Ecosystem", longDescription: "Explore the comprehensive Google Cloud and AI stack for full-stack developers.", features: ["Firebase", "Google Cloud", "Gemini API", "Angular/Flutter"] },
   noCodeBuilder: { title: "Build Site without code", description: "No-Code Website Builder", longDescription: "Empower your creativity with our intuitive no-code website builder.", features: ["Drag & Drop Interface", "Responsive Design"] },
   pythonLibraryMasterHub: { title: "Python Library Master Hub", description: "Master Essential Libraries", longDescription: "Deep dive into the most popular Python libraries for data science, automation, and web development.", features: ["NumPy & Pandas", "FastAPI & Flask", "Request & Selenium", "Scikit-Learn"] },
@@ -113,6 +120,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "Clear",
     fontSize: "Font Size",
     projects: {
+      openRobotics: {
+        title: "Open Source For Robotics",
+        description: "A comprehensive guide to building intelligent machines with open-source tools.",
+        longDescription: "Master the foundations of modern robotics using open-source middleware and frameworks. This hub covers everything from Robot Operating System (ROS) concepts to high-fidelity simulation in Gazebo, sensor fusion, and autonomous navigation.",
+        features: ["ROS 2 Humble/Iron", "Simulation with Gazebo & Webots", "OpenCV Integration", "SLAM & Navigation"]
+      },
       masterGoogleFullStackTools: {
         title: "Master Google Full Stack Tools",
         description: "Master the complete Google ecosystem for modern full-stack development.",
@@ -207,6 +220,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "נקה",
     fontSize: "גודל גופן",
     projects: {
+      openRobotics: {
+        title: "קוד פתוח לרובוטיקה",
+        description: "מדריך מקיף לבניית מכונות חכמות עם כלי קוד פתוח.",
+        longDescription: "שלטו ביסודות של רובוטיקה מודרנית באמצעות מסגרות ותשתיות קוד פתוח. המרכז מכסה הכל - ממושגי ROS ועד סימולציות נאמנות למקור ב-Gazebo, היתוך חיישנים וניווט אוטונומי.",
+        features: ["ROS 2", "סימולציה ב-Gazebo", "ראייה ממוחשבת (OpenCV)", "ניווט SLAM"]
+      },
       masterGoogleFullStackTools: {
         title: "מומחה כלי Google Full Stack",
         description: "שלטו במערכת האקולוגית השלמה של Google לפיתוח Full Stack מודרני.",
@@ -274,7 +293,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
         features: ["מבני נתונים ואלגוריתמים", "תכנות מונחה עצמים", "AsyncIO ומקביליות", "פריימוורקים ל-Web (FastAPI/Django)"]
       },
       machineLearning: {
-        title: "מאסטר בקורס למידת מכונה",
+        title: "Machine Learning Masterclass",
         description: "שלטו ביסודות של למידת מכונה ו-Edge AI.",
         longDescription: "צלילה עמוקה לעולם של למידת מכונה.",
         features: ["רשתות עצביות", "פריסת Edge AI", "עיבוד מקדים של נתונים", "TensorFlow & PyTorch"]

@@ -38,6 +38,7 @@ export interface Translation {
     pythonLibraryMasterHub: ProjectDetails;
     noCodeBuilder: ProjectDetails;
     masterGoogleFullStackTools: ProjectDetails;
+    openRobotics: ProjectDetails;
   };
 }
 
@@ -52,5 +53,5 @@ export interface ProjectData {
   id: string;
   image: string;
   link: string;
-  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns' | 'agenticStack' | 'testingTools' | 'masterCpp' | 'webScraping' | 'pythonLibraryMasterHub' | 'noCodeBuilder' | 'masterGoogleFullStackTools';
+  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns' | 'agenticStack' | 'testingTools' | 'masterCpp' | 'webScraping' | 'pythonLibraryMasterHub' | 'noCodeBuilder' | 'masterGoogleFullStackTools' | 'openRobotics';
 }
