@@ -37,7 +37,7 @@ export interface Translation {
     webScraping: ProjectDetails;
     pythonLibraryMasterHub: ProjectDetails;
     noCodeBuilder: ProjectDetails;
-    masterGoogleFullStackTools: ProjectDetails;
+    googleAiTools: ProjectDetails;
     openRobotics: ProjectDetails;
   };
 }
@@ -53,5 +53,5 @@ export interface ProjectData {
   id: string;
   image: string;
   link: string;
-  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns' | 'agenticStack' | 'testingTools' | 'masterCpp' | 'webScraping' | 'pythonLibraryMasterHub' | 'noCodeBuilder' | 'masterGoogleFullStackTools' | 'openRobotics';
+  translationKey: 'networking' | 'aiTools' | 'sbc' | 'python' | 'machineLearning' | 'designPatterns' | 'agenticStack' | 'testingTools' | 'masterCpp' | 'webScraping' | 'pythonLibraryMasterHub' | 'noCodeBuilder' | 'googleAiTools' | 'openRobotics';
 }

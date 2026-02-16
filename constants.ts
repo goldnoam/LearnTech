@@ -2,16 +2,16 @@ import { Language, Translation, ProjectData } from './types';
 
 export const PROJECTS: ProjectData[] = [
   {
+    id: 'google-ai-tools',
+    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800',
+    link: 'https://googleaitools.vercel.app/',
+    translationKey: 'googleAiTools'
+  },
+  {
     id: 'open-robotics',
     image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd05a?auto=format&fit=crop&q=80&w=800',
     link: 'https://openrobotics.vercel.app',
     translationKey: 'openRobotics'
-  },
-  {
-    id: 'google-fullstack-tools',
-    image: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=800',
-    link: 'https://googleaitools.vercel.app/',
-    translationKey: 'masterGoogleFullStackTools'
   },
   {
     id: 'no-code-builder',
@@ -89,8 +89,8 @@ export const PROJECTS: ProjectData[] = [
 
 // Helper to get common project details for missing translations
 const getProjectFallback = (lang: string) => ({
+  googleAiTools: { title: "Google AI Tools", description: "Master Google AI Ecosystem", longDescription: "Explore the comprehensive Google Cloud and AI stack for modern developers.", features: ["Firebase", "Google Cloud", "Gemini API", "AI Agents"] },
   openRobotics: { title: "Open Source For Robotics", description: "Master Robotics Development", longDescription: "Explore the world of open-source robotics, from middleware like ROS to advanced simulation and control systems.", features: ["ROS 2", "Gazebo Simulation", "Computer Vision", "Motion Planning"] },
-  masterGoogleFullStackTools: { title: "Master Google Full Stack Tools", description: "Google AI & Cloud Ecosystem", longDescription: "Explore the comprehensive Google Cloud and AI stack for full-stack developers.", features: ["Firebase", "Google Cloud", "Gemini API", "Angular/Flutter"] },
   noCodeBuilder: { title: "Build Site without code", description: "No-Code Website Builder", longDescription: "Empower your creativity with our intuitive no-code website builder.", features: ["Drag & Drop Interface", "Responsive Design"] },
   pythonLibraryMasterHub: { title: "Python Library Master Hub", description: "Master Essential Libraries", longDescription: "Deep dive into the most popular Python libraries for data science, automation, and web development.", features: ["NumPy & Pandas", "FastAPI & Flask", "Request & Selenium", "Scikit-Learn"] },
   webScraping: { title: "Web Scraping", description: "Master Data Extraction", longDescription: "Learn how to extract data from websites efficiently using modern tools.", features: ["Puppeteer & Playwright", "Data Analysis", "Automation"] },
@@ -120,17 +120,17 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "Clear",
     fontSize: "Font Size",
     projects: {
+      googleAiTools: {
+        title: "Google AI Tools",
+        description: "Master the complete Google AI ecosystem for modern development.",
+        longDescription: "A deep dive into Google's most powerful AI and cloud tools. Learn how to integrate the Gemini API, leverage Firebase for real-time applications, and use Google Cloud Platform to build enterprise-grade software.",
+        features: ["Gemini API Integration", "Firebase Real-time Services", "Google Cloud Machine Learning", "Vertex AI Platform"]
+      },
       openRobotics: {
         title: "Open Source For Robotics",
         description: "A comprehensive guide to building intelligent machines with open-source tools.",
         longDescription: "Master the foundations of modern robotics using open-source middleware and frameworks. This hub covers everything from Robot Operating System (ROS) concepts to high-fidelity simulation in Gazebo, sensor fusion, and autonomous navigation.",
         features: ["ROS 2 Humble/Iron", "Simulation with Gazebo & Webots", "OpenCV Integration", "SLAM & Navigation"]
-      },
-      masterGoogleFullStackTools: {
-        title: "Master Google Full Stack Tools",
-        description: "Master the complete Google ecosystem for modern full-stack development.",
-        longDescription: "A deep dive into Google's most powerful developer tools. From Firebase for backend services to Google Cloud infrastructure and Gemini AI integration, this guide covers the tools you need to build scalable, AI-driven applications.",
-        features: ["Firebase Backend-as-a-Service", "Gemini AI Integration", "Google Cloud Platform", "Performance Monitoring"]
       },
       noCodeBuilder: {
         title: "Build Site without code",
@@ -220,17 +220,17 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     clear: "נקה",
     fontSize: "גודל גופן",
     projects: {
+      googleAiTools: {
+        title: "כלי הבינה המלאכותית של גוגל",
+        description: "שלטו במערכת האקולוגית של Google AI לפיתוח מודרני.",
+        longDescription: "צלילה עמוקה לכלי ה-AI והענן החזקים ביותר של גוגל. למדו כיצד לשלב את Gemini API, להשתמש ב-Firebase עבור אפליקציות בזמן אמת, ולנצל את Vertex AI לבניית פתרונות מתקדמים.",
+        features: ["שילוב Gemini API", "שירותי Firebase בזמן אמת", "למידת מכונה ב-Google Cloud", "פלטפורמת Vertex AI"]
+      },
       openRobotics: {
         title: "קוד פתוח לרובוטיקה",
         description: "מדריך מקיף לבניית מכונות חכמות עם כלי קוד פתוח.",
         longDescription: "שלטו ביסודות של רובוטיקה מודרנית באמצעות מסגרות ותשתיות קוד פתוח. המרכז מכסה הכל - ממושגי ROS ועד סימולציות נאמנות למקור ב-Gazebo, היתוך חיישנים וניווט אוטונומי.",
         features: ["ROS 2", "סימולציה ב-Gazebo", "ראייה ממוחשבת (OpenCV)", "ניווט SLAM"]
-      },
-      masterGoogleFullStackTools: {
-        title: "מומחה כלי Google Full Stack",
-        description: "שלטו במערכת האקולוגית השלמה של Google לפיתוח Full Stack מודרני.",
-        longDescription: "צלילה עמוקה לכלי הפיתוח החזקים ביותר של Google. מ-Firebase לשירותי Backend ועד לתשתיות Google Cloud ואינטגרציה של Gemini AI, המדריך הזה מכסה את הכלים הדרושים לבניית אפליקציות מונעות AI וניתנות להרחבה.",
-        features: ["Firebase Backend", "אינטגרציה של Gemini AI", "Google Cloud Platform", "ניטור ביצועים"]
       },
       noCodeBuilder: {
         title: "בניית אתרים ללא קוד",
@@ -322,17 +322,17 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     projects: getProjectFallback('zh') as any
   },
   [Language.HI]: {
-    title: "लर्न टेक हב",
-    subtitle: "नेटवर्किंग से लेकर एआई और हार्डवेयर तक, आधुनिक तकनीक में महारत हासिल करने का आपका प्रवेश द्वार।",
+    title: "לרנ טק האב",
+    subtitle: "नेटवर्किंग से लेकर एआई और हार्डवेयर तक, आधुनिक तकनीक में महारת हासिल करने का आपका प्रवेश द्वार।",
     footerRights: "(C) Noam Gold AI 2026",
     feedback: "प्रतिक्रिया भेजें",
     visitSite: "विवरण देखें",
-    goToSite: "पेג पर जाएं",
+    goToSite: "पेज पर जाएं",
     searchPlaceholder: "विषय खोजें...",
     noResults: "आपकी खोज से मेल खाने वाला कोई प्रोजेक्ट नहीं मिला।",
     share: "हब साझा करें",
     exportResults: "JSON निर्यात करें",
-    clear: "साף करें",
+    clear: "साफ करें",
     fontSize: "फ़ॉन्ट आकार",
     projects: getProjectFallback('hi') as any
   },
